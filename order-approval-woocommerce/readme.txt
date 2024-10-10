@@ -4,7 +4,7 @@ Donate link: https://sevengits.com/donate
 Tags: woocommerce, order approval,order,pre order,woocommece order
 Requires at least: 4.0
 Tested up to: 6.6
-Stable tag: 2.1.9
+Stable tag: 2.1.10
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -135,6 +135,10 @@ We need your support!
 Hope you liked this plugin. We are happy to hear how our plugin is helping you and your business.
 Sharing your feedback along with a [5-star rating on WordPress](https://wordpress.org/support/plugin/order-approval-woocommerce/reviews/?rate=5#new-post) is very much appreciated.
 Your reviews that motivates us to come up with new features and frequent updates.
+
+**2.1.10 - 09 OCT 2024**
+
+1. **Improvement:** Compatible with WooCommerce 9.3
 
 **2.1.9 - 17 JUL 2024**
 
