@@ -108,6 +108,7 @@ class Sg_Order_Approval_Woocommerce_Admin
 			'exclude_from_search'       => false,
 			'show_in_admin_all_list'    => true,
 			'show_in_admin_status_list' => true,
+			/* translators: %s is the count of orders waiting for approval. */
 			'label_count'               => _n_noop('Waiting approval <span class="count">(%s)</span>', 'Waiting<span class="count">(%s)</span>', 'order-approval-woocommerce')
 		));
 	}
@@ -157,26 +158,27 @@ class Sg_Order_Approval_Woocommerce_Admin
 	 */
 	function sgits_oa_woo_orders_bulk_actions_begin($bulk_actions)
 	{
-		$bulk_actions['sgits_oa_woo_mark_approved'] = __('Change status to approved'); // <option value="mark_awaiting_shipping">Change status to awaiting shipping</option>
+		
+		$bulk_actions['mark_approved'] = __('Change status to approved','order-approval-woocommerce'); 
+		$bulk_actions['mark_waiting'] = __('Change status to waiting','order-approval-woocommerce');
 		return $bulk_actions;
 	}
-	function sgits_oa_woo_orders_bulk_actions_end($bulk_actions)
-	{
-		$bulk_actions['sgits_oa_woo_mark_waiting'] = __('Change status to waiting'); // <option value="mark_awaiting_shipping">Change status to awaiting shipping</option>
-		return $bulk_actions;
-	}
+	
 	function sgits_oa_woo_bulk_orders_actions($redirect, $do_action, $object_ids)
 	{
 
-		if ('sgits_oa_woo_mark_approved' === $do_action || 'sgits_oa_woo_mark_waiting' === $do_action) {
+		if ('mark_approved' === $do_action || 'mark_waiting' === $do_action) {
 
 			# change status of every selected order
-			$status = 'pending';
-			$redir_array = array(
-				'bulk_action' => $do_action,
-				'approve' => count($object_ids),
-			);
-			if ('sgits_oa_woo_mark_waiting' === $do_action) {
+			if ('mark_approved' === $do_action){ 
+				$status = 'pending';
+				$redir_array = array(
+					'bulk_action' => $do_action,
+					'approve' => count($object_ids),
+				);
+			}
+
+			if ('mark_waiting' === $do_action) {
 				$status = 'waiting';
 				$redir_array = array(
 					'bulk_action' => $do_action,
@@ -192,33 +194,35 @@ class Sg_Order_Approval_Woocommerce_Admin
 
 		return $redirect;
 	}
-
-	function sgits_oa_woo_admin_notices()
-	{
-		if (
-			isset($_REQUEST['bulk_action']) && 'sgits_oa_woo_mark_approved' == $_REQUEST['bulk_action']
-			&& isset($_REQUEST['approve']) && $_REQUEST['approve']
-		) {
-
-			# displaying the message when list of orders approved in orders
-			printf(
-				'<div id="message" class="updated notice is-dismissible"><p>' . _n('%d order is approved.', '%d orders are approved.', $_REQUEST['approve']) . '</p></div>',
-				$_REQUEST['approve']
-			);
+	function sgits_oa_woo_admin_notices() {
+		// phpcs:ignore WordPress.Security.NonceVerification
+		if ( empty( $_GET['bulk_action'] ) || 'mark_approved' !== sanitize_text_field(  wp_unslash($_GET['bulk_action'] )) ) {
+			return; // Exit if no action or a different action is specified
 		}
-		if (
-			isset($_REQUEST['bulk_action']) && 'sgits_oa_woo_mark_waiting' == $_REQUEST['bulk_action']
-			&& isset($_REQUEST['waiting']) && $_REQUEST['waiting']
-		) {
-
-			# displaying the message when list of orders approved in orders
-			printf(
-				'<div id="message" class="updated notice is-dismissible"><p>' . _n('%d order is waiting.', '%d orders are waiting.', $_REQUEST['waiting']) . '</p></div>',
-				$_REQUEST['waiting']
-			);
+		// phpcs:ignore WordPress.Security.NonceVerification
+		if(isset( $_GET['approve'] )){
+			// phpcs:ignore WordPress.Security.NonceVerification
+			$count = intval( $_GET['approve'] ); 
 		}
+		
+
+		printf(
+				'<div id="message" class="updated fade"><p>%s</p></div>',
+				esc_html(
+					sprintf(
+							/* translators: %d is the count of orders approved. */
+						_n(
+							'Selected %d order marked as approved.',
+							'Selected %d orders marked as approved.',
+							$count,
+							'order-approval-woocommerce',
+						),
+						number_format_i18n( $count ) // Format count for localization
+					)
+				)
+			);
 	}
-
+	
 
 	/**
 	 * 
@@ -352,12 +356,17 @@ class Sg_Order_Approval_Woocommerce_Admin
 				),
 
 				array(
-					'name'	=> __('Sg Order Approval for Woocommerce', 'order-approval-woocommerce'),
-					'type'	=> 'title',
-					'desc'	=>	sprintf(__('Free version order approval plugin enabled for all orders.<p> Enable order approval at <a href="%s" target="_blank">payments</a> & customise  <a href="%s" target="_blank">emails</a>.</p> If you want to enable order approval for specific product please purchase  <a href="%s" target="_blank">premium version</a>.', 'order-approval-woocommerce'), $payment_link, $e_link, 'https://sevengits.com/plugin/sg-order-approval-woocommerce-pro/?utm_source=dashboard&utm_medium=settings_page&utm_campaign=Free-plugin'),
-					'id'	=> 'sg_tab_main'
+					'name'  => __('SG Order Approval for WooCommerce', 'order-approval-woocommerce'),
+					'type'  => 'title',
+					/* translators: 1: Payments link, 2: Emails link, 3: Premium version link */
+					'desc'  => sprintf(__('The free version of the order approval plugin is enabled for all orders.<p>Enable order approval at <a href="%1$s" target="_blank">Payments</a> and customize <a href="%2$s" target="_blank">Emails</a>.</p>If you want to enable order approval for specific products, please purchase the <a href="%3$s" target="_blank">premium version</a>.', 'order-approval-woocommerce'),
+						esc_url($payment_link),
+						esc_url($e_link),
+						esc_url('https://sevengits.com/plugin/sg-order-approval-woocommerce-pro/?utm_source=dashboard&utm_medium=settings_page&utm_campaign=Free-plugin')
+					),
+					'id'    => 'sg_tab_main',
 				),
-
+				
 				array(
 					"name"		=> __('Manage inventory', 'order-approval-woocommerce'),
 					"id"		=> 'sg_oa_woo_manage_inventory',
@@ -370,7 +379,15 @@ class Sg_Order_Approval_Woocommerce_Admin
 					),
 					'desc'		=> __('How to handle stock using order approval', 'order-approval-woocommerce'),
 					'desc_tip'	=> true,
-				),			
+				),
+				array(
+					"name"    => __('Enable orders editable', 'order-approval-woocommerce'),
+					'id'    => 'sg_enable_order_edit',
+					"type"    => "checkbox",
+					'desc' => __('when new orders created admin can edit order', 'order-approval-woocommerce'),
+					'desc_tip' => false,
+				),
+				
 				array(
 					'type'	=> 'sectionend',
 					'name'	=> 'end_section',
@@ -383,7 +400,7 @@ class Sg_Order_Approval_Woocommerce_Admin
 					array(
 
 						'type' => 'title',
-						'name' => __('Addon Plugins', 'order-approval-woocommerce-pro')
+						'name' => __('Addon Plugins', 'order-approval-woocommerce')
 					),
 					array(
 						array(
@@ -433,11 +450,11 @@ class Sg_Order_Approval_Woocommerce_Admin
 		$approve_slug   =	wp_nonce_url(admin_url('admin-ajax.php?action=woocommerce_mark_order_status&status=pending&order_id=' . $order->get_id()), 'woocommerce-mark-order-status');
 		$reject_slug	=	wp_nonce_url(admin_url('admin-ajax.php?action=woocommerce_mark_order_status&status=cancelled&order_id=' . $order->get_id()), 'woocommerce-mark-order-status');
 ?>
-		<a href="<?php echo $approve_slug; ?>" class="button success <?php echo $approve_class . " " . $aprv_btn_visibility_cls; ?>">
-			<?php echo $approve_label; ?>
+		<a href="<?php echo esc_html($approve_slug); ?>" class="button success <?php echo esc_html($approve_class . " " . $aprv_btn_visibility_cls); ?>">
+			<?php echo esc_html($approve_label); ?>
 		</a>
-		<a href="<?php echo $reject_slug; ?>" class="button danger <?php echo $reject_class; ?>">
-			<?php echo $reject_label; ?>
+		<a href="<?php echo esc_html($reject_slug); ?>" class="button danger <?php echo esc_html($reject_class); ?>">
+			<?php echo esc_html($reject_label); ?>
 		</a>
 		<style>
 			.button.danger {
@@ -494,7 +511,7 @@ class Sg_Order_Approval_Woocommerce_Admin
 		foreach ($new_list as $name => $item) {
 			$target = (array_key_exists("target", $item)) ? $item['target'] : '';
 			$classList = (array_key_exists("classList", $item)) ? $item['classList'] : '';
-			$settings[$name] = sprintf('<a href="%s" target="' . $target . '" class="' . $classList . '">%s</a>', esc_url($item['link'], $this->plugin_name), esc_html__($item['name'], $this->plugin_name));
+			$settings[$name] = sprintf('<a href="%s" target="' . $target . '" class="' . $classList . '">%s</a>', esc_url($item['link']), esc_html($item['name']));
 		}
 		if ($position !== "start") {
 			// push into $links array at the end
@@ -583,15 +600,15 @@ class Sg_Order_Approval_Woocommerce_Admin
 	{
 	?>
 		<div id="sg-settings-sidebar">
-			<div id="<?php echo $links['id']; ?>">
-				<h4><?php echo $links['name']; ?></h4>
+			<div id="<?php echo esc_html($links['id']); ?>">
+				<h4><?php echo esc_html($links['name']); ?></h4>
 				<ul>
 					<?php
 					foreach ($links['options'] as $key => $item) {
 						if (is_array($item)) :
 							$target = (array_key_exists("target", $item)) ? $item['target'] : '';
 					?>
-							<li><span class="<?php echo $item['classList']; ?>"></span><a href="<?php echo $item['link']; ?>" target="<?php echo $target; ?>"><?php echo $item['name']; ?></a></li>
+							<li><span class="<?php echo esc_html($item['classList']); ?>"></span><a href="<?php echo esc_url($item['link']); ?>" target="<?php echo esc_html($target); ?>"><?php echo esc_html($item['name']); ?></a></li>
 					<?php
 						endif;
 					}
@@ -601,7 +618,19 @@ class Sg_Order_Approval_Woocommerce_Admin
 		</div>
 <?php
 	}
+/**
+ * Function for making order editable
+ */
+	function sgitsoa_wc_make_waiting_orders_editable($is_editable, $order)
+	{
 
+
+		if ($order->get_status() == 'waiting') {
+			$is_editable = true;
+		}
+
+		return $is_editable;
+	}
 
 
 }

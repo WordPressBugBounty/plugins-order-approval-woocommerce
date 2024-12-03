@@ -12,7 +12,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
-	<p><?php printf( esc_html__( 'You’ve received the following order from %s:', 'order-approval-woocommerce' ), $order->get_formatted_billing_full_name() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+	<p><?php 
+	/* translators: %d: Order number */
+	printf( esc_html__( 'Received the following order from %s:', 'order-approval-woocommerce' ),esc_html($order->get_formatted_billing_full_name()) );  ?> </p>
 
 <?php 
 /**
@@ -20,7 +22,7 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
  */
 if ( $additional_content ) {
 	echo wp_kses_post( wpautop( wptexturize( $additional_content ) ) );
-	echo "<p>Order Details:</p>";
+	echo '<p>' . esc_html__('Order Details', 'order-approval-woocommerce') . '</p>';
 }
 
 

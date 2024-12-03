@@ -90,7 +90,7 @@ class Woa_Gateway extends WC_Payment_Gateway {
 		 */
 		public function thankyou_page($order_id) {
 			if ( $this->instructions ) {
-				echo wpautop( wptexturize( $this->instructions ) );
+				echo wp_kses_post( wpautop( wptexturize( $this->instructions ) ));
 			}
 		}
 	
@@ -102,7 +102,7 @@ class Woa_Gateway extends WC_Payment_Gateway {
 		public function email_instructions( $order, $sent_to_admin, $plain_text = false ) {
 		
 			if ( $this->instructions && ! $sent_to_admin && $this->id === $order->get_payment_method() && $order->has_status( 'waiting' ) ) {
-				echo wpautop( wptexturize( $this->instructions ) ) . PHP_EOL;
+				echo wp_kses_post( wpautop( wptexturize( $this->instructions ) ) ). PHP_EOL;
 			}
 		}
 	

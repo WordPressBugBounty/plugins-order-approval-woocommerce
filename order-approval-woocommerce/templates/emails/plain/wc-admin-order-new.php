@@ -7,9 +7,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-echo "= " . $email_heading . " =\n\n";
-
-echo sprintf( __( 'New order #%d has been received. The order details:', 'order-approval-woocommerce' ), $order->get_id() ) . "\n\n";
+echo "= " . esc_html($email_heading) . " =\n\n";
+/* translators: %d: Order number */
+echo sprintf( esc_html__( 'New order #%d has been received. The order details:', 'order-approval-woocommerce' ), esc_html($order->get_id()) ) . "\n\n";
 
 echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n";
 
@@ -35,4 +35,4 @@ do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_
 
 echo "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n";
 
-echo apply_filters( 'woocommerce_email_footer_text', get_option( 'woocommerce_email_footer_text' ) );
+echo esc_html(apply_filters( 'woocommerce_email_footer_text', get_option( 'woocommerce_email_footer_text' ) ));

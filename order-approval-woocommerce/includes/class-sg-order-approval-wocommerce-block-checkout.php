@@ -35,7 +35,7 @@ final class Woa_Order_Blocks extends AbstractPaymentMethodType {
 				'wp-html-entities',
 				'wp-i18n',
 			],
-			null,
+			SG_ORDER_APPROVAL_WOOCOMMERCE_VERSION,
 			true
 		);
 		if( function_exists( 'wp_set_script_translations' ) ) {			

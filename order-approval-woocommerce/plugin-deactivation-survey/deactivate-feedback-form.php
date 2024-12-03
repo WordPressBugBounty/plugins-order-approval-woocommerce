@@ -18,19 +18,19 @@ add_action('admin_enqueue_scripts', function () {
 
 	// Enqueue scripts
 	if (!wp_script_is('sgits-remodal-js', 'enqueued'))
-		wp_enqueue_script('sgits-remodal-js', plugin_dir_url(__FILE__) . 'remodal.min.js');
+		wp_enqueue_script('sgits-remodal-js', plugin_dir_url(__FILE__) . 'remodal.min.js',array(),SG_ORDER_APPROVAL_WOOCOMMERCE_VERSION,false);
 
 	if (!wp_style_is('sgits-remodal-css', 'enqueued'))
-		wp_enqueue_style('sgits-remodal-css', plugin_dir_url(__FILE__) . 'remodal.css');
+		wp_enqueue_style('sgits-remodal-css', plugin_dir_url(__FILE__) . 'remodal.css',array(),SG_ORDER_APPROVAL_WOOCOMMERCE_VERSION,false);
 
 	if (!wp_style_is('remodal-default-theme', 'enqueued'))
-		wp_enqueue_style('remodal-default-theme', plugin_dir_url(__FILE__) . 'remodal-default-theme.css');
+		wp_enqueue_style('remodal-default-theme', plugin_dir_url(__FILE__) . 'remodal-default-theme.css',array(),SG_ORDER_APPROVAL_WOOCOMMERCE_VERSION,false);
 
 	if (!wp_script_is('sgits-deactivate-feedback-form-js', 'enqueued'))
-		wp_enqueue_script('sgits-deactivate-feedback-form-js', plugin_dir_url(__FILE__) . 'deactivate-feedback-form.js');
+		wp_enqueue_script('sgits-deactivate-feedback-form-js', plugin_dir_url(__FILE__) . 'deactivate-feedback-form.js',array(),SG_ORDER_APPROVAL_WOOCOMMERCE_VERSION,false);
 
 	if (!wp_script_is('sgits-deactivate-feedback-form-css', 'enqueued'))
-		wp_enqueue_style('sgits-deactivate-feedback-form-css', plugin_dir_url(__FILE__) . 'deactivate-feedback-form.css');
+		wp_enqueue_style('sgits-deactivate-feedback-form-css', plugin_dir_url(__FILE__) . 'deactivate-feedback-form.css',array(),SG_ORDER_APPROVAL_WOOCOMMERCE_VERSION,false);
 
 	// Localized strings
 	wp_localize_script('sgits-deactivate-feedback-form-js', 'sgits_deactivate_feedback_form_strings', array(

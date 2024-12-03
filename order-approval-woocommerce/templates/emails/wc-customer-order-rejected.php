@@ -12,14 +12,16 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
-	<p><?php printf( __( 'Your order #%d has been rejected.', 'order-approval-woocommerce' ), $order->get_order_number() ); ?></p>
+	<p><?php
+	/* translators: %d: Order number */ 
+	printf(esc_html__( 'Your order #%d has been rejected.', 'order-approval-woocommerce' ), esc_html($order->get_order_number()) ); ?></p>
 <?php 
 /**
  * Show user-defined additional content - this is set in each email's settings.
  */
 if ( $additional_content ) {
 	echo wp_kses_post( wpautop( wptexturize( $additional_content ) ) );
-	echo "<p>Order Details:</p>";
+	echo '<p>' . esc_html__( 'Order Details:', 'order-approval-woocommerce' ) . '</p>';
 }
 
 

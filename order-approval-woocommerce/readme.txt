@@ -3,8 +3,8 @@ Contributors: Sarankumar,Sevengits
 Donate link: https://sevengits.com/donate
 Tags: woocommerce, order approval,order,pre order,woocommece order
 Requires at least: 4.0
-Tested up to: 6.6
-Stable tag: 2.1.10
+Tested up to: 6.7
+Stable tag: 2.1.12
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -32,6 +32,7 @@ WooCommerce Order Approval plugin allowing shop owners to approve or reject all 
 * Supported all payment gateways enabled.
 * No complex Settings.
 * Blocked checkout feature.
+* Order Edit feature, allowing you to modify order details seamlessly,ensures better control over your orders
 
 **Order Approval Plugin [Premium]**
                                                                                                                                                                                                             
@@ -84,6 +85,8 @@ Sevengits is a premier WooCommerce custom plugin development company, distinguis
 
 * WC Messaging [free](https://wordpress.org/plugins/wc-messaging "Whatsapp integration with WooCommerce") | [pro](https://sevengits.com/plugin/wc-messaging-pro/ "Whatsapp WooCommerce pro") | [demo](https://demo.sevengits.com/wc-messaging-pro/ "WooCommerce whatsapp API integration")
 
+* WC Messaging Team [Pro](https://sevengits.com/plugin/wc-messaging-team/ "WooCommerce Team") | [demo](https://demo.sevengits.com/wc-messaging-team "WooCommerce Team demo")
+
 
 == Installation ==
 
@@ -135,6 +138,16 @@ We need your support!
 Hope you liked this plugin. We are happy to hear how our plugin is helping you and your business.
 Sharing your feedback along with a [5-star rating on WordPress](https://wordpress.org/support/plugin/order-approval-woocommerce/reviews/?rate=5#new-post) is very much appreciated.
 Your reviews that motivates us to come up with new features and frequent updates.
+
+**2.1.12 - 03 DEC 2024**
+
+1. **Add:** Introduced the Order Edit feature, allowing you to modify order details seamlessly. This update ensures better control over your orders
+1. **Fix:** Resolved several minor bugs to enhance stability
+
+**2.1.11 - 15 NOV 2024**
+
+1. **Improvement:** Compatible with WordPress 6.7
+1. **Improvement:** Compatible with WooCommerce 9.4
 
 **2.1.10 - 09 OCT 2024**
 

@@ -188,12 +188,19 @@ class Sg_Order_Approval_Woocommerce
 		$this->loader->add_action('woocommerce_admin_field_sgitsSettingsSidebar', $plugin_admin, 'oawoo_add_admin_settings_sidebar', 100);
 
 		#  bulk order action option
-		$this->loader->add_filter('bulk_actions-edit-shop_order', $plugin_admin, 'sgits_oa_woo_orders_bulk_actions_begin');
-		$this->loader->add_filter('bulk_actions-edit-shop_order', $plugin_admin, 'sgits_oa_woo_orders_bulk_actions_end', 100);
+		$this->loader->add_filter('bulk_actions-woocommerce_page_wc-orders', $plugin_admin, 'sgits_oa_woo_orders_bulk_actions_begin',10,1);
+
 		#  bulk order action option handler
-		$this->loader->add_action('handle_bulk_actions-edit-shop_order', $plugin_admin, 'sgits_oa_woo_bulk_orders_actions', 20, 3);
+		$this->loader->add_action('handle_bulk_actions-woocommerce_page_wc-orders', $plugin_admin, 'sgits_oa_woo_bulk_orders_actions',10, 3);
 		#  Display admin notice 
 		$this->loader->add_action('admin_notices', $plugin_admin, 'sgits_oa_woo_admin_notices');
+		// editable orders
+		#  make waiting status orders are editable
+		if (get_option('sg_enable_order_edit') == 'yes') {
+			$this->loader->add_filter('wc_order_is_editable', $plugin_admin, 'sgitsoa_wc_make_waiting_orders_editable', 10, 2);
+		}
+
+
 	}
 
 	/**

@@ -12,7 +12,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
-	<p><?php printf( __( 'Your order #%d has been waiting for approval.', 'order-approval-woocommerce' ), $order->get_order_number() ); ?></p>
+	<p><?php
+	/* translators: %d: Order number */
+	echo esc_html( sprintf( __( 'Your order #%d has been waiting for approval.', 'order-approval-woocommerce' ), $order->get_order_number() ) ); ?></p>
 <?php 
 /**
  * Show user-defined additional content - this is set in each email's settings.

@@ -12,7 +12,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
-	<p><?php printf( __( 'Your order #%d has been approved.', 'order-approval-woocommerce' ), $order->get_order_number() ); ?></p>
+	<p><?php 
+	/* Translators: %d: Order number */
+	echo esc_html( sprintf( __( 'Your order #%d has been approved.', 'order-approval-woocommerce' ), $order->get_order_number() ) );?></p>
 <?php 
  /**
  * adding payment link options
@@ -21,9 +23,9 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 $pay_now_url = esc_url( $order->get_checkout_payment_url() );
 
 ?>
-<h2 class="email-upsell-title"><?php  printf( __( 'Pay for order', 'order-approval-woocommerce' ) ); ?> </h2>
-<p class="email-upsell-p"><?php printf(__('Please pay the order by clicking here ','order-approval-woocommerce')); ?>
-<a href='<?php echo $pay_now_url;?>'> <?php  printf( __( 'Pay now', 'order-approval-woocommerce' ) ); ?></a></p>
+<h2 class="email-upsell-title"><?php  printf( esc_html__( 'Pay for order', 'order-approval-woocommerce' ) ); ?> </h2>
+<p class="email-upsell-p"><?php printf(esc_html__('Please pay the order by clicking here ','order-approval-woocommerce')); ?>
+<a href='<?php echo esc_url($pay_now_url);?>'> <?php  printf( esc_html__( 'Pay now', 'order-approval-woocommerce' ) ); ?></a></p>
 <?php 
 /**
  * Show user-defined additional content - this is set in each email's settings.

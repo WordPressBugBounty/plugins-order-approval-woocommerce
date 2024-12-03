@@ -24,7 +24,7 @@ class WC_Admin_Order_New  extends WC_Email {
             $this->recipient = get_option( 'admin_email' );
 		$this->heading     = __( 'New Order ', 'order-approval-woocommerce' );
 		// translators: placeholder is {blogname}, a variable that will be substituted when email is sent out
-		$this->subject     = sprintf( _x( '[%s] : New Order #[%s]', 'default email subject for new emails sent to admin', 'order-approval-woocommerce' ), '{blogname}','{order_number}' );
+		$this->subject     = sprintf( _x( '[%1$s] : New Order #[%2$s]', 'default email subject for new emails sent to admin', 'order-approval-woocommerce' ), '{blogname}','{order_number}' );
     
     // Template paths.
 		$this->template_html  = 'emails/wc-admin-order-new.php';
@@ -141,7 +141,8 @@ class WC_Admin_Order_New  extends WC_Email {
             'heading'    => array(
                 'title'       => 'Email Heading',
                 'type'        => 'text',
-                'description' => sprintf( __( 'This controls the main heading contained within the email notification. Leave blank to use the default heading: <code>%s</code>.' ), $this->heading ),
+                'description' => sprintf( /* translators: %s is the default email heading. */
+					__( 'This controls the main heading contained within the email notification. Leave blank to use the default heading: <code>%s</code>.','order-approval-woocommerce' ), $this->heading ),
                 'placeholder' => '',
                 'default'     => ''
             ),
