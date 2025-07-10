@@ -3,8 +3,8 @@ Contributors: Sarankumar,Sevengits
 Donate link: https://sevengits.com/donate
 Tags: woocommerce, order approval,order,pre order,woocommece order
 Requires at least: 4.0
-Tested up to: 6.7
-Stable tag: 2.1.12
+Tested up to: 6.8
+Stable tag: 2.1.13
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -83,9 +83,12 @@ Sevengits is a premier WooCommerce custom plugin development company, distinguis
 
 * Chikkili- Google Pay India for Woocommerce [free](https://wordpress.org/plugins/chikkili-google-pay-for-woocommerce/ "Chikkili- Google Pay India for Woocommerce free") | [pro](https://sevengits.com/plugin/chikkili-google-pay-for-woocommerce-pro/ " Chikkili- Google Pay India for Woocommerce pro") | [demo](https://demo.sevengits.com/chikkili-google-pay-for-woocommerce/ " Chikkili- Google Pay India for Woocommerce demo")
 
-* WC Messaging [free](https://wordpress.org/plugins/wc-messaging "Whatsapp integration with WooCommerce") | [pro](https://sevengits.com/plugin/wc-messaging-pro/ "Whatsapp WooCommerce pro") | [demo](https://demo.sevengits.com/wc-messaging-pro/ "WooCommerce whatsapp API integration")
+* Notiqoo [free](https://wordpress.org/plugins/wc-messaging "Whatsapp integration with WooCommerce") | [pro](https://sevengits.com/plugin/wc-messaging-pro/ "Whatsapp WooCommerce pro") | [demo](https://notiqoo.com/launch-demo/ "WooCommerce whatsapp API integration")
 
-* WC Messaging Team [Pro](https://sevengits.com/plugin/wc-messaging-team/ "WooCommerce Team") | [demo](https://demo.sevengits.com/wc-messaging-team "WooCommerce Team demo")
+* Notiqoo Team [Pro](https://notiqoo.com/teams-for-notiqoo/ "WooCommerce Team") | [demo](https://notiqoo.com/launch-demo/ "WooCommerce Team demo")
+
+* Notiqoo Automator  [Pro](https://notiqoo.com/automator-for-notiqoo/ "WooCommerce Workflow") | [demo](https://notiqoo.com/launch-demo/ "WooCommerce Workflow demo")
+
 
 
 == Installation ==
@@ -138,6 +141,11 @@ We need your support!
 Hope you liked this plugin. We are happy to hear how our plugin is helping you and your business.
 Sharing your feedback along with a [5-star rating on WordPress](https://wordpress.org/support/plugin/order-approval-woocommerce/reviews/?rate=5#new-post) is very much appreciated.
 Your reviews that motivates us to come up with new features and frequent updates.
+
+**2.1.13 - 10 JULY 2025**
+
+1. **Improvement:** Compatible with WordPress 6.8
+1. **Improvement:** Compatible with WooCommerce 9.9
 
 **2.1.12 - 03 DEC 2024**
 

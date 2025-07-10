@@ -4,7 +4,7 @@
  * Plugin Name:          Order Approval for Woocommerce
  * Plugin URI:           https://sevengits.com/plugin/order-approval-woocommerce-pro/
  * Description:          WooCommerce Order Approval plugin allowing shop owners to approve or reject all the orders placed by customers before payment processed.
- * Version:              2.1.12
+ * Version:              2.1.13
  * Author:               Sevengits
  * Author URI:           https://sevengits.com/
  * Requires Plugins: woocommerce
@@ -13,7 +13,7 @@
  * Text Domain:          order-approval-woocommerce
  * Domain Path:          /languages
  * Requires at least: 3.7
- * WC Tested up to:      9.4
+ * WC Tested up to:      9.9
  */
 
 // If this file is called directly, abort.
@@ -31,7 +31,7 @@ if (!function_exists('get_plugin_data')) {
  * Rename this for your plugin and update it as you release new versions.
  */
 if (!defined('SG_ORDER_APPROVAL_WOOCOMMERCE_VERSION')) {
-	define('SG_ORDER_APPROVAL_WOOCOMMERCE_VERSION','2.1.12');
+	define('SG_ORDER_APPROVAL_WOOCOMMERCE_VERSION','2.1.13');
 }
 if (!defined('SG_BASE_ORDER')) {
 	define('SG_BASE_ORDER', plugin_basename(__FILE__));
