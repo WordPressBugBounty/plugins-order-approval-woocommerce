@@ -1,94 +1,108 @@
 === Order Approval for Woocommerce  ===
 Contributors: Sarankumar,Sevengits
 Donate link: https://sevengits.com/donate
-Tags: woocommerce, order approval,order,pre order,woocommece order
+Tags: order approval,woocommerce order approval,approve orders,block payment,manual order approval
 Requires at least: 4.0
-Tested up to: 6.8
-Stable tag: 2.1.13
+Tested up to: 6.9
+Stable tag: 2.1.15
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-WooCommerce Store owner needs to approve order before payment is processed.
+Approve or reject WooCommerce orders before payment. Manual order approval, email notifications, payment link, all gateways supported.
 
 == Description ==
 
-WooCommerce Order Approval plugin allowing shop owners to approve or reject all the orders placed by customers before payment processed.
+**WooCommerce Order Approval** plugin allows shop owners to approve or reject orders before payment is processed, giving complete control over the WooCommerce sales flow.
+With this order approval system, customers can place an order without completing payment. The store owner or admin can manually review each order and decide whether to approve or reject it before payment.
 
 **Sales process flow for new customer**
 
-1. The customer makes an order. No payment will be processed.
-1. Shop owner/ admin approves/rejects the order.
-1. Customer get notification email. If order is approved,payment link will be included. On reject, cancellation mail will be sent to customer.
-
-[Buy Premium](https://sevengits.com/plugin/order-approval-woocommerce-pro/ "WooCommerce Order Approval")|[Docs](https://sevengits.com/docs/sg-order-approval-woocommerce-pro/ "Order Approval Plugin for WooCommerce")|[Demo](https://demo.sevengits.com/order-approval-woocommerce/ "order approval for woocommerce demo") 
+1. The customer places an order, and no payment is processed initially.
+1. The shop owner or admin reviews and approves or rejects the order manually.
+1. The customer receives an email notification:
+    * If the order is approved, the email includes a secure payment link to complete the payment.
+    * If the order is rejected, a cancellation email is sent to the customer.
+    * This plugin is ideal for Cash on Delivery (COD) orders, high-value purchases, custom orders, and stores that require manual order verification before payment.
 
 **Features**
 
-* Once installed and activated, the plugin allows shop owner  to reject or approve all the orders placed by the customers.
-* Store owner needs to approve order manually before payment is processed.
-* Every time the order hits the Approved or Rejected status, the plugin will send a notification email to the customer. 
-* When the shop owner approves an order, the customer will get approved email notification with the payment link.
-* Supported all payment gateways enabled.
-* No complex Settings.
-* Blocked checkout feature.
-* Order Edit feature, allowing you to modify order details seamlessly,ensures better control over your orders
+**Order Approval Plugin – Free Version**
 
-**Order Approval Plugin [Premium]**
-                                                                                                                                                                                                            
-* All features of Free version.
-* Enable order approval for specific products.
-* Order approval for category wise
-* Order approval for tag wise
-* Order approval for category and tag wise
-* Blocked checkout feature.
-* Translation ready.
-* Approve/Reject button in admin email
+* Allows the shop owner to approve or reject all WooCommerce orders placed by customers after installation and activation.
+* Enables manual order approval before payment is processed, giving full control over the order workflow.
+* Automatically sends email notifications to customers whenever an order is approved or rejected.
+* When an order is approved, the customer receives an order approval email with a secure payment link to complete the purchase.
+* Supports all enabled WooCommerce payment gateways without additional configuration.
+* No complex settings required – simple, lightweight, and beginner-friendly.
+* Includes a blocked checkout feature to prevent payment until the order is approved.
+* Comes with an Order Edit feature, allowing store owners to modify order details easily before approval, ensuring better order management and control.
 
+**Order Approval Plugin – Pro**
 
-https://youtu.be/g0RJMNQz0bA
+* Includes all features available in the Free version.
+* Allows order approval for specific products, giving product-level control.
+* Enables category-wise order approval for better order management.
+* Supports tag-wise order approval, ideal for custom workflows.
+* Allows order approval based on category and tag combinations for advanced control.
+* Provides a blocked checkout feature, ensuring payment is restricted until approval.
+* Translation-ready, supporting multilingual WooCommerce stores.
+* Adds Approve / Reject buttons directly inside the admin email, enabling faster order actions.
+[Order Approval Pro](https://sevengits.com/plugin/order-approval-woocommerce-pro/?utm_source=wp&utm_medium=readme&utm_campaign=order-approval-free "WooCommerce Order Approval")
+[Docs](https://sevengits.com/docs/sg-order-approval-woocommerce-pro/?utm_source=wp&utm_medium=readme&utm_campaign=order-approval-free "Order Approval Plugin for WooCommerce")
+[Demo](https://demo.sevengits.com/order-approval-woocommerce/?utm_source=wp&utm_medium=readme&utm_campaign=order-approval-free "order approval for woocommerce demo")
+[Support](https://sevengits.com/contact/?utm_source=wp&utm_medium=readme&utm_campaign=order-approval-free "order approval pro support")
 
+https://youtu.be/g0RJMNQz0bA?utm_source=wp&utm_medium=readme&utm_campaign=order-approval-free
 
-**Addon Plugins:**
+**How It Works**
 
-**1.Dokan Order Approval**   
+1. The customer places a WooCommerce order without completing payment, and the checkout payment is blocked until approval.
+1. The order status remains pending approval until it is reviewed by the store owner or admin.
+1. The store admin reviews the order from the WooCommerce Orders dashboard.
+1. The admin manually approves or rejects the order using the built-in order approval controls.
+1. The customer receives an automatic email notification based on the order status:
+    * **Approved–** The customer receives an order approval email with a secure WooCommerce payment link to complete the payment.
+    * **Rejected–** The customer receives an order cancellation email notification confirming the order rejection.
 
-The Dokan Order Approval plugin enables vendors to approve or reject customer orders before payment is processed.
+**Addon Plugins**
 
-[Free Version](https://wordpress.org/plugins/dokan-order-approval/ "dokan order approval for woocommerce") | [Pro Version](https://sevengits.com/plugin/dokan-order-approval-pro/ "dokan order approval") | [Demo](https://demo.sevengits.com/dokan-order-approval/ "dokan order approval demo")
-     
-**2.Order Approval for Multivendorx**  
+**1. Dokan Order Approval**
 
-Order Approval for MultiVendorX plugin allows vendors to approve or reject the orders placed by customers before payment is processed. This is a combination of the MultiVendorX plugin and SG Order Approval plugin. This plugin helps you to manage orders from multiple vendors without collecting payment from the customer.  
+[Free Version](https://wordpress.org/plugins/dokan-order-approval/?utm_source=wp&utm_medium=readme&utm_campaign=order-approval "dokan order approval for woocommerce")
+[Pro Version](https://sevengits.com/plugin/dokan-order-approval-pro/?utm_source=wp&utm_medium=readme&utm_campaign=order-approval "dokan order approval")
+[Demo](https://demo.sevengits.com/dokan-order-approval/?utm_source=wp&utm_medium=readme&utm_campaign=order-approval "dokan order approval demo")
+The Dokan Order Approval plugin enables Dokan marketplace vendors to approve or reject customer orders before payment is processed, giving vendors full control over their orders.
+
+**2. Order Approval for MultiVendorX**
+
+[Free Version](https://wordpress.org/plugins/order-approval-for-multivendorx/?utm_source=wp&utm_medium=readme&utm_campaign=order-approval "Order Approval for MultiVendorX plugin")
+[Pro Version](https://sevengits.com/plugin/order-approval-for-multivendorx-pro/?utm_source=wp&utm_medium=readme&utm_campaign=order-approval "woocommece multiple venders order approval")
+[Demo](https://demo.sevengits.com/order-approval-for-multivendorx-pro/?utm_source=wp&utm_medium=readme&utm_campaign=order-approval "demo venders order approval")
+The Order Approval for MultiVendorX plugin allows marketplace vendors to approve or reject orders placed by customers before payment is processed.
+
+This addon works as a combination of the MultiVendorX plugin and the SG Order Approval plugin, helping marketplace owners manage multi-vendor orders without collecting payment upfront.
+
+**3. Order Approval for WCFM**
+
+[Free Version](https://wordpress.org/plugins/order-approval-for-wcfm/?utm_source=wp&utm_medium=readme&utm_campaign=order-approval "Order Approval for WCFM /order approval WCFM plugin")
+[Pro Version](https://sevengits.com/plugin/order-approval-for-wcfm-pro/?utm_source=wp&utm_medium=readme&utm_campaign=order-approval "WCFM order approval plugin pro")
+[Demo](https://demo.sevengits.com/order-approval-for-wcfm-pro/?utm_source=wp&utm_medium=readme&utm_campaign=order-approval "WCFM woocommerce multivendor marketplace demo")
+The Order Approval for WCFM plugin enables WCFM marketplace vendors to manually approve or reject customer orders before payment is processed, ensuring better order verification and control.
     
-[Free Version](https://wordpress.org/plugins/order-approval-for-multivendorx/ "Order Approval for MultiVendorX plugin") | [Pro Version](https://sevengits.com/plugin/order-approval-for-multivendorx-pro/ "woocommece multiple venders order approval")  | [Demo](https://demo.sevengits.com/order-approval-for-multivendorx-pro/ "MultiVendorX plugin demo")
-       
-**3.Order approval for WCFM**   
-
-The Order Approval for WCFM plugin enables vendors to approve or reject customer orders before payment is processed. 
-   
-[Free Version](https://wordpress.org/plugins/order-approval-for-wcfm/ "Order Approval for WCFM /order approval WCFM plugin") | [Pro Version](https://sevengits.com/plugin/order-approval-for-wcfm-pro/ "WCFM order approval plugin pro")| [Demo](https://demo.sevengits.com/order-approval-for-wcfm-pro/ "WCFM woocommerce multivendor marketplace demo")
-
-
-
 **Our other plugins**
 
-Sevengits is a premier WooCommerce custom plugin development company, distinguished by a team of seasoned experts. Specializing in tailoring e-commerce solutions, SevenGits delivers innovative and scalable plugins, ensuring clients harness the full potential of their WooCommerce platforms.
+Sevengits is a leading WooCommerce custom plugin development company backed by a team of experienced professionals. We specialize in building scalable, secure, and innovative WooCommerce plugins, helping businesses unlock the full potential of their eCommerce stores.
+Featured Plugins
 
-* Map to Address [free](https://wordpress.org/plugins/map-to-address/ "Map to Address free") | [pro](https://sevengits.com/plugin/map-to-address-pro/ "map to address  plugin pro") | [Demo](https://demo.sevengits.com/map-to-address-pro/ "Reverse Geocoding  plugin demo") 
+* [Notiqoo – Free](https://wordpress.org/plugins/wc-messaging?utm_source=wp&utm_medium=readme&utm_campaign=order-approval "Whatsapp integration with WooCommerce") | [Pro](https://notiqoo.com?utm_source=wp&utm_medium=readme&utm_campaign=order-approval "Whatsapp WooCommerce pro") | [Demo](https://notiqoo.com/launch-demo/?utm_source=wp&utm_medium=readme&utm_campaign=order-approval "WooCommerce whatsapp API integration")
+ A powerful WooCommerce WhatsApp messaging and automation plugin designed for seamless customer communication.
 
-* Integrate PhonePe with WooCommerce [free](https://wordpress.org/plugins/wc-phonepe/ "Integrate PhonePe with WooCommerce free") | [demo](https://demo.sevengits.com/phonepe-woocommerce/ "Integrate PhonePe with WooCommerce demo")
+* [Checkout Location Picker for WooCommerce – Free](https://wordpress.org/plugins/sg-checkout-location-picker/?utm_source=wp&utm_medium=readme&utm_campaign=order-approval "Checkout Location Picker for WooCommerce free") | [Pro](https://sevengits.com/plugin/sg-checkout-location-picker-pro/?utm_source=wp&utm_medium=readme&utm_campaign=order-approval "Checkout Location Picker for WooCommerce pro") | [Demo](https://demo.sevengits.com/sg-checkout-location-picker/?utm_source=wp&utm_medium=readme&utm_campaign=order-approval "Checkout Location Picker for WooCommerce demo")
+ Enables customers to select their delivery location easily during checkout for accurate order fulfillment.
 
-* Checkout Location Picker for WooCommerce [free](https://wordpress.org/plugins/sg-checkout-location-picker/ "Checkout Location Picker for WooCommerce free") | [pro](https://sevengits.com/plugin/sg-checkout-location-picker-pro/ "Checkout Location Picker for WooCommerce pro") | [demo](https://demo.sevengits.com/sg-checkout-location-picker/ "Checkout Location Picker for WooCommerce demo")
-
-* Chikkili- Google Pay India for Woocommerce [free](https://wordpress.org/plugins/chikkili-google-pay-for-woocommerce/ "Chikkili- Google Pay India for Woocommerce free") | [pro](https://sevengits.com/plugin/chikkili-google-pay-for-woocommerce-pro/ " Chikkili- Google Pay India for Woocommerce pro") | [demo](https://demo.sevengits.com/chikkili-google-pay-for-woocommerce/ " Chikkili- Google Pay India for Woocommerce demo")
-
-* Notiqoo [free](https://wordpress.org/plugins/wc-messaging "Whatsapp integration with WooCommerce") | [pro](https://sevengits.com/plugin/wc-messaging-pro/ "Whatsapp WooCommerce pro") | [demo](https://notiqoo.com/launch-demo/ "WooCommerce whatsapp API integration")
-
-* Notiqoo Team [Pro](https://notiqoo.com/teams-for-notiqoo/ "WooCommerce Team") | [demo](https://notiqoo.com/launch-demo/ "WooCommerce Team demo")
-
-* Notiqoo Automator  [Pro](https://notiqoo.com/automator-for-notiqoo/ "WooCommerce Workflow") | [demo](https://notiqoo.com/launch-demo/ "WooCommerce Workflow demo")
-
+* [Map to Address – Free](https://wordpress.org/plugins/map-to-address/?utm_source=wp&utm_medium=readme&utm_campaign=order-approval "Map to Address free") | [Pro](https://sevengits.com/plugin/map-to-address-pro/?utm_source=wp&utm_medium=readme&utm_campaign=order-approval "map to address  plugin pro") | [Demo](https://demo.sevengits.com/map-to-address-pro/?utm_source=wp&utm_medium=readme&utm_campaign=order-approval "Reverse Geocoding  plugin demo")
+ Automatically converts map locations into address fields, simplifying address selection and reducing checkout errors.
 
 
 == Installation ==
@@ -139,8 +153,20 @@ see attached image.
 We need your support!
 
 Hope you liked this plugin. We are happy to hear how our plugin is helping you and your business.
-Sharing your feedback along with a [5-star rating on WordPress](https://wordpress.org/support/plugin/order-approval-woocommerce/reviews/?rate=5#new-post) is very much appreciated.
+Sharing your feedback along with a [5-star rating on WordPress](https://wordpress.org/support/plugin/order-approval-woocommerce/reviews/?rate=5#new-post?utm_source=wp&utm_medium=readme&utm_campaign=order-approval) is very much appreciated.
 Your reviews that motivates us to come up with new features and frequent updates.
+
+**2.1.15 - 19 JAN 2026**
+
+1. **Improvement:** Compatible with WordPress 6.9
+1. **Improvement:** Compatible with WooCommerce 10.4
+
+**2.1.14 - 10 OCT 2025**
+
+1. **New:** Plugin page added with a review link
+1. **New:** Sidebar includes links to Pro features and the Docs section for easy navigation
+1. **Fixed:** Deprecated dynamic property warning for $instructions in payment gateway class
+1. **Improvement:** Compatible with WooCommerce 10.2
 
 **2.1.13 - 10 JULY 2025**
 

@@ -185,7 +185,7 @@ class Sg_Order_Approval_Woocommerce
 		$this->loader->add_filter('plugin_row_meta', $plugin_admin, 'oawoo_plugin_description_below_end', 10, 2);
 
 		# sidebar in plugin settings page
-		$this->loader->add_action('woocommerce_admin_field_sgitsSettingsSidebar', $plugin_admin, 'oawoo_add_admin_settings_sidebar', 100);
+		$this->loader->add_action('woocommerce_admin_field_sgoaPromoSidebar', $plugin_admin, 'oawoo_add_admin_settings_sidebar', 100);
 
 		#  bulk order action option
 		$this->loader->add_filter('bulk_actions-woocommerce_page_wc-orders', $plugin_admin, 'sgits_oa_woo_orders_bulk_actions_begin',10,1);

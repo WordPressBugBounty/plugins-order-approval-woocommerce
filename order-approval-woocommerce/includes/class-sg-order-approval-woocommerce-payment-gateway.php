@@ -14,7 +14,7 @@ if (!class_exists('WC_Payment_Gateway') || defined('OAWOO_DISABLED')) {
 	return;
 }
 class Woa_Gateway extends WC_Payment_Gateway {
-
+	public $instructions;
 	/**
 		 * Constructor for the gateway.
 		 */

@@ -65,7 +65,7 @@ class Sg_Order_Approval_Woocommerce_Admin
 		 */
 
 		// wp_enqueue_style($this->plugin_name . '-admin', plugin_dir_url(__FILE__) . 'css/sg-order-approval-woocommerce-pro-admin.css', array(), $this->version, 'all');
-		
+
 		if (!wp_style_is('sgits-admin-settings-sidebar-css', 'enqueued'))
 			wp_enqueue_style('sgits-admin-settings-sidebar', plugin_dir_url(__FILE__) . 'css/settings-sidebar.css', array(), $this->version, 'all');
 
@@ -93,7 +93,7 @@ class Sg_Order_Approval_Woocommerce_Admin
 		 */
 
 		// wp_enqueue_script($this->plugin_name . '-admin', plugin_dir_url(__FILE__) . 'js/sg-order-approval-woocommerce-pro-admin.js', array('jquery'), $this->version, false);
-	
+
 	}
 	/**
 	 * add custom status
@@ -158,19 +158,19 @@ class Sg_Order_Approval_Woocommerce_Admin
 	 */
 	function sgits_oa_woo_orders_bulk_actions_begin($bulk_actions)
 	{
-		
-		$bulk_actions['mark_approved'] = __('Change status to approved','order-approval-woocommerce'); 
-		$bulk_actions['mark_waiting'] = __('Change status to waiting','order-approval-woocommerce');
+
+		$bulk_actions['mark_approved'] = __('Change status to approved', 'order-approval-woocommerce');
+		$bulk_actions['mark_waiting'] = __('Change status to waiting', 'order-approval-woocommerce');
 		return $bulk_actions;
 	}
-	
+
 	function sgits_oa_woo_bulk_orders_actions($redirect, $do_action, $object_ids)
 	{
 
 		if ('mark_approved' === $do_action || 'mark_waiting' === $do_action) {
 
 			# change status of every selected order
-			if ('mark_approved' === $do_action){ 
+			if ('mark_approved' === $do_action) {
 				$status = 'pending';
 				$redir_array = array(
 					'bulk_action' => $do_action,
@@ -194,35 +194,36 @@ class Sg_Order_Approval_Woocommerce_Admin
 
 		return $redirect;
 	}
-	function sgits_oa_woo_admin_notices() {
+	function sgits_oa_woo_admin_notices()
+	{
 		// phpcs:ignore WordPress.Security.NonceVerification
-		if ( empty( $_GET['bulk_action'] ) || 'mark_approved' !== sanitize_text_field(  wp_unslash($_GET['bulk_action'] )) ) {
+		if (empty($_GET['bulk_action']) || 'mark_approved' !== sanitize_text_field(wp_unslash($_GET['bulk_action']))) {
 			return; // Exit if no action or a different action is specified
 		}
 		// phpcs:ignore WordPress.Security.NonceVerification
-		if(isset( $_GET['approve'] )){
+		if (isset($_GET['approve'])) {
 			// phpcs:ignore WordPress.Security.NonceVerification
-			$count = intval( $_GET['approve'] ); 
+			$count = intval($_GET['approve']);
 		}
-		
+
 
 		printf(
-				'<div id="message" class="updated fade"><p>%s</p></div>',
-				esc_html(
-					sprintf(
-							/* translators: %d is the count of orders approved. */
-						_n(
-							'Selected %d order marked as approved.',
-							'Selected %d orders marked as approved.',
-							$count,
-							'order-approval-woocommerce',
-						),
-						number_format_i18n( $count ) // Format count for localization
-					)
+			'<div id="message" class="updated fade"><p>%s</p></div>',
+			esc_html(
+				sprintf(
+					/* translators: %d is the count of orders approved. */
+					_n(
+						'Selected %d order marked as approved.',
+						'Selected %d orders marked as approved.',
+						$count,
+						'order-approval-woocommerce',
+					),
+					number_format_i18n($count) // Format count for localization
 				)
-			);
+			)
+		);
 	}
-	
+
 
 	/**
 	 * 
@@ -315,58 +316,29 @@ class Sg_Order_Approval_Woocommerce_Admin
 			$addon_settings = apply_filters('sg_oawoo_additional_settings', array());
 			$payment_link = admin_url() . "admin.php?page=wc-settings&tab=checkout";
 			$e_link = admin_url() . 'admin.php?page=wc-settings&tab=email';
-			
-
-
 
 			$settings =  array(
 				array(
 					'name'		=> __('Helpfull Links', 'order-approval-woocommerce'),
-					'type'		=> 'sgitsSettingsSidebar',
+					'type'		=> 'sgoaPromoSidebar',
 					'desc'		=> __('Helpfull Links for settings page', 'order-approval-woocommerce'),
 					'desc_tip'	=> true,
-					'id'		=> 'promo-helpfull-links',
-					'options'	=> array(
-						array(
-							'name' 		=> __("Documentation", 'order-approval-woocommerce'),
-							'classList' => "dashicons dashicons-media-default sg-icon",
-							'target' 	=> "_blank",
-							'link' 		=> "https://sevengits.com/docs/sg-order-approval-woocommerce-pro/?utm_source=wp&utm_medium=promo-sidebar&utm_campaign=settings_page"
-						),
-						array(
-							'name' 		=> __("Free Support", 'order-approval-woocommerce'),
-							'classList' => "dashicons dashicons-groups sg-icon",
-							'target' 	=> "_blank",
-							'link' 		=> "https://wordpress.org/support/plugin/order-approval-woocommerce/",
-						),
-						array(
-							'name' 		=> __("Request Customization", 'order-approval-woocommerce'),
-							'classList' => "dashicons dashicons-sos sg-icon",
-							'target' 	=> "_blank",
-							'link'		=> "https://sevengits.com/contact/?utm_source=wp&utm_medium=promo-sidebar&utm_campaign=settings_page"
-						),
-						array(
-							'name'		=> __("Get Premium", 'order-approval-woocommerce'),
-							'classList' => "dashicons dashicons-awards sg-icon",
-							'target'	=> "_blank",
-							'link'		=> "https://sevengits.com/plugin/sg-order-approval-woocommerce-pro/?utm_source=wp&utm_medium=promo-sidebar&utm_campaign=settings_page"
-						),
-					)
-
+					'id'		=> 'promo-helpfull-links'
 				),
 
 				array(
 					'name'  => __('SG Order Approval for WooCommerce', 'order-approval-woocommerce'),
 					'type'  => 'title',
 					/* translators: 1: Payments link, 2: Emails link, 3: Premium version link */
-					'desc'  => sprintf(__('The free version of the order approval plugin is enabled for all orders.<p>Enable order approval at <a href="%1$s" target="_blank">Payments</a> and customize <a href="%2$s" target="_blank">Emails</a>.</p>If you want to enable order approval for specific products, please purchase the <a href="%3$s" target="_blank">premium version</a>.', 'order-approval-woocommerce'),
+					'desc'  => sprintf(
+						__('The free version of the order approval plugin is enabled for all orders.<p>Enable order approval at <a href="%1$s" target="_blank">Payments</a> and customize <a href="%2$s" target="_blank">Emails</a>.</p>If you want to enable order approval for specific products, please purchase the <a href="%3$s" target="_blank">premium version</a>.', 'order-approval-woocommerce'),
 						esc_url($payment_link),
 						esc_url($e_link),
-						esc_url('https://sevengits.com/plugin/sg-order-approval-woocommerce-pro/?utm_source=dashboard&utm_medium=settings_page&utm_campaign=Free-plugin')
+						esc_url('https://sevengits.com/plugin/sg-order-approval-woocommerce-pro/?utm_source=dashboard&utm_medium=settings-page&utm_campaign=order-approval-woocommerce')
 					),
 					'id'    => 'sg_tab_main',
 				),
-				
+
 				array(
 					"name"		=> __('Manage inventory', 'order-approval-woocommerce'),
 					"id"		=> 'sg_oa_woo_manage_inventory',
@@ -387,7 +359,7 @@ class Sg_Order_Approval_Woocommerce_Admin
 					'desc' => __('when new orders created admin can edit order', 'order-approval-woocommerce'),
 					'desc_tip' => false,
 				),
-				
+
 				array(
 					'type'	=> 'sectionend',
 					'name'	=> 'end_section',
@@ -495,7 +467,7 @@ class Sg_Order_Approval_Woocommerce_Admin
 				display: none !important
 			}
 		</style>
-	<?php
+<?php
 	}
 
 	/**
@@ -553,10 +525,10 @@ class Sg_Order_Approval_Woocommerce_Admin
 		// if plugin is installed $links listed below the plugin title in plugins page. add custom links at the end of list
 		$link_list = array(
 			'buy-pro' => array(
-				"name" => 'Buy Premium',
+				"name" => __('Buy Premium', 'order-approval-woocommerce'),
 				"classList" => "pro-purchase get-pro-link",
 				"target" => '_blank',
-				"link" => 'https://sevengits.com/plugin/sg-order-approval-woocommerce-pro/?utm_source=Wordpress&utm_medium=plugins-link&utm_campaign=Free-plugin'
+				"link" => 'https://sevengits.com/plugin/order-approval-woocommerce-pro/?utm_source=dashboard&utm_medium=plugins-link-below-title&utm_campaign=order-approval-woocommerce'
 			)
 		);
 		return $this->oawoo_merge_links($links, $link_list, "end");
@@ -572,20 +544,26 @@ class Sg_Order_Approval_Woocommerce_Admin
 		if (strpos($file, 'order-approval-woocommerce.php') !== false) {
 			$new_links = array(
 				'pro' => array(
-					"name" => 'Buy Premium',
+					"name" => __('Buy Premium', 'order-approval-woocommerce'),
 					"classList" => "pro-purchase get-pro-link",
 					"target" => '_blank',
-					"link" => 'https://sevengits.com/plugin/sg-order-approval-woocommerce-pro/?utm_source=dashboard&utm_medium=plugins-link&utm_campaign=Free-plugin'
+					"link" => 'https://sevengits.com/plugin/sg-order-approval-woocommerce-pro/?utm_source=dashboard&utm_medium=plugins-link-below-description&utm_campaign=order-approval-woocommerce'
 				),
 				'docs' => array(
-					"name" => 'Docs',
+					"name" => __('Docs', 'order-approval-woocommerce'),
 					"target" => '_blank',
-					"link" => 'https://sevengits.com/docs/sg-order-approval-woocommerce-pro/?utm_source=dashboard&utm_medium=plugins-link&utm_campaign=Free-plugin'
+					"link" => 'https://sevengits.com/docs/sg-order-approval-woocommerce-pro/?utm_source=dashboard&utm_medium=plugins-link-below-description&utm_campaign=order-approval-woocommerce'
 				),
 				'support' => array(
-					"name" => 'Free Support',
+					"name" => __('Free Support', 'order-approval-woocommerce'),
 					"target" => '_blank',
 					"link" => 'https://wordpress.org/support/plugin/order-approval-woocommerce/'
+				),
+				
+				'review' => array(
+					"name" => __('Rate the plugin', 'order-approval-woocommerce') . ' ★★★★★',
+					"target" => '_blank',
+					"link" => 'https://wordpress.org/support/plugin/order-approval-woocommerce/reviews?rate=5#new-post'
 				),
 
 			);
@@ -598,29 +576,11 @@ class Sg_Order_Approval_Woocommerce_Admin
 	// sidebar in plugin settings page
 	function oawoo_add_admin_settings_sidebar($links)
 	{
-	?>
-		<div id="sg-settings-sidebar">
-			<div id="<?php echo esc_html($links['id']); ?>">
-				<h4><?php echo esc_html($links['name']); ?></h4>
-				<ul>
-					<?php
-					foreach ($links['options'] as $key => $item) {
-						if (is_array($item)) :
-							$target = (array_key_exists("target", $item)) ? $item['target'] : '';
-					?>
-							<li><span class="<?php echo esc_html($item['classList']); ?>"></span><a href="<?php echo esc_url($item['link']); ?>" target="<?php echo esc_html($target); ?>"><?php echo esc_html($item['name']); ?></a></li>
-					<?php
-						endif;
-					}
-					?>
-				</ul>
-			</div>
-		</div>
-<?php
+		require plugin_dir_path(__FILE__) . 'partials/promo-sidebar.php';
 	}
-/**
- * Function for making order editable
- */
+	/**
+	 * Function for making order editable
+	 */
 	function sgitsoa_wc_make_waiting_orders_editable($is_editable, $order)
 	{
 
@@ -631,6 +591,4 @@ class Sg_Order_Approval_Woocommerce_Admin
 
 		return $is_editable;
 	}
-
-
 }
