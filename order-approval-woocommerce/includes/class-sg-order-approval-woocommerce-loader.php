@@ -9,6 +9,7 @@
  * @package    Sg_Order_Approval_Woocommerce
  * @subpackage Sg_Order_Approval_Woocommerce/includes
  */
+if (!defined('ABSPATH')) exit;
 
 /**
  * Register all actions and filters for the plugin.

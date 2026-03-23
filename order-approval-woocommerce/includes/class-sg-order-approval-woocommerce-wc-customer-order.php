@@ -1,4 +1,6 @@
 <?php
+if (!defined('ABSPATH')) exit;
+
 /**
  * Class  WC_Customer_Cancel_Order_new
  */

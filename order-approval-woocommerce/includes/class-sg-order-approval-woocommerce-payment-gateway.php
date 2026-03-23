@@ -10,6 +10,9 @@
  * @subpackage Sg_Order_Approval_Woocommerce/includes
  * @author     Sevengits <sevengits@gmail.com>
  */
+if (!defined('ABSPATH')) exit;
+
+
 if (!class_exists('WC_Payment_Gateway') || defined('OAWOO_DISABLED')) {
 	return;
 }

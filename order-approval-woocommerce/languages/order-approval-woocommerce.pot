@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Sg Order Approval for Woocommerce\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-10 05:42+0000\n"
+"POT-Creation-Date: 2026-03-17 06:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,131 +16,246 @@ msgstr ""
 "X-Loco-Version: 2.6.6; wp-6.3.1\n"
 "X-Domain: order-approval-woocommerce"
 
-#: order-approval-woocommerce.php:54
-msgid "</b> plugin to work. Please ensure that they are activated: "
+#. %s: Order ID.
+#: templates/emails/vendor-new-preorder.php:37
+#, php-format
+msgid "[Order #%s]"
 msgstr ""
 
-#: includes/class-sg-order-approval-woocommerce-wc-admin-order.php:16
+#: includes/class-dokan-order-approval-vendor-order.php:57
+msgid "[{site_title}] New customer order ({order_number}) - {order_date}"
+msgstr ""
+
+#: includes/class-wcfm-order-approval-vendor-order.php:46
+msgid ""
+"[{site_title}] New Order Pending Approval({order_number}) - {order_date}"
+msgstr ""
+
+#: templates/emails/store-new-preorder.php:90
+msgid "A new order from"
+msgstr ""
+
+#: templates/emails/plain/store-new-preorder.php:86
+msgid "A new order was received from"
+msgstr ""
+
+#: templates/emails/store-new-preorder.php:92
+msgid "A new order was received. Order details is as follows:"
+msgstr ""
+
+#: includes/class-sg-order-approval-woocommerce-wc-admin-order.php:18
 msgid "Admin Pre order notification "
 msgstr ""
 
-#: includes/class-sg-order-approval-woocommerce-payment-gateway.php:27
+#: includes/class-sg-order-approval-woocommerce-payment-gateway.php:30
 msgid "Allow store owner to approve  woocommerce order  before payment."
 msgstr ""
 
-#: includes/class-sg-order-approval-woocommerce-wc-admin-order.php:17
+#: includes/class-sg-order-approval-woocommerce-wc-admin-order.php:19
 msgid "An email sent to the admin when an order is created."
 msgstr ""
 
-#: includes/class-sg-order-approval-woocommerce-wc-customer-order-approved.php:17
+#: includes/class-sg-order-approval-woocommerce-wc-customer-order-approved.php:19
 msgid "An email sent to the customer when an order is approved."
 msgstr ""
 
-#: includes/class-sg-order-approval-woocommerce-wc-customer-order.php:17
+#: includes/class-sg-order-approval-woocommerce-wc-customer-order.php:19
 msgid ""
 "An email sent to the customer when an order is created through pre-order."
 msgstr ""
 
-#: includes/class-sg-order-approval-woocommerce-wc-customer-order-rejected.php:17
+#: includes/class-sg-order-approval-woocommerce-wc-customer-order-rejected.php:19
 msgid "An email sent to the customer when an order is rejected."
 msgstr ""
 
-#: admin/class-sg-order-approval-woocommerce-admin.php:137
-#: admin/class-sg-order-approval-woocommerce-admin.php:415
+#: admin/class-sg-order-approval-woocommerce-admin.php:140
+#: admin/class-sg-order-approval-woocommerce-admin.php:412
+#: public/packages/dokan.php:76
 msgid "Approve"
 msgstr ""
 
-#: admin/class-sg-order-approval-woocommerce-admin.php:417
+#: admin/packages/wcfm.php:113 admin/packages/wcfm.php:144
+msgid "Approve order"
+msgstr ""
+
+#: admin/class-sg-order-approval-woocommerce-admin.php:414
 msgid "Approved"
+msgstr ""
+
+#. %s: list of placeholders
+#: includes/class-dokan-order-approval-vendor-order.php:168
+#: includes/class-dokan-order-approval-vendor-order.php:177
+#, php-format
+msgid "Available placeholders: %s"
+msgstr ""
+
+#: templates/emails/store-new-preorder.php:494
+#: templates/emails/plain/store-new-preorder.php:495
+msgid "Billing address"
+msgstr ""
+
+#: admin/class-sg-order-approval-woocommerce-admin.php:532
+#: admin/class-sg-order-approval-woocommerce-admin.php:551
+msgid "Buy Premium"
 msgstr ""
 
 #: plugin-deactivation-survey/deactivate-feedback-form.php:45
 msgid "Cancel"
 msgstr ""
 
-#: includes/class-sg-order-approval-woocommerce-wc-customer-order.php:16
+#: admin/class-sg-order-approval-woocommerce-admin.php:163
+msgid "Change status to approved"
+msgstr ""
+
+#: admin/class-sg-order-approval-woocommerce-admin.php:164
+msgid "Change status to waiting"
+msgstr ""
+
+#: includes/class-wcfm-order-approval-vendor-order.php:212
+msgid "Choose which format of email to be sent."
+msgstr ""
+
+#: includes/class-dokan-order-approval-vendor-order.php:184
+msgid "Choose which format of email to send."
+msgstr ""
+
+#: templates/emails/store-new-preorder.php:466
+#: templates/emails/plain/store-new-preorder.php:467
+msgid "Customer Details"
+msgstr ""
+
+#: templates/emails/store-new-preorder.php:468
+#: templates/emails/plain/store-new-preorder.php:469
+msgid "Customer Name:"
+msgstr ""
+
+#: includes/class-sg-order-approval-woocommerce-wc-customer-order.php:18
 msgid "Customer Pre order notification"
 msgstr ""
 
 #. placeholder is {blogname}, a variable that will be substituted when email is sent out
-#: includes/class-sg-order-approval-woocommerce-wc-admin-order.php:27
+#: includes/class-sg-order-approval-woocommerce-wc-admin-order.php:29
 #, php-format
 msgctxt "default email subject for new emails sent to admin"
-msgid "[%s] : New Order #[%s]"
+msgid "[%1$s] : New Order #[%2$s]"
 msgstr ""
 
 #. placeholder is {blogname}, a variable that will be substituted when email is sent out
-#: includes/class-sg-order-approval-woocommerce-wc-customer-order-approved.php:22
+#: includes/class-sg-order-approval-woocommerce-wc-customer-order-approved.php:24
 #, php-format
 msgctxt "default email subject for new emails sent to the customer"
 msgid "[%s] Order  Approved. "
 msgstr ""
 
 #. placeholder is {blogname}, a variable that will be substituted when email is sent out
-#: includes/class-sg-order-approval-woocommerce-wc-customer-order-rejected.php:22
+#: includes/class-sg-order-approval-woocommerce-wc-customer-order-rejected.php:24
 #, php-format
 msgctxt "default email subject for new emails sent to the customer"
 msgid "[%s] Order is rejected"
 msgstr ""
 
 #. placeholder is {blogname}, a variable that will be substituted when email is sent out
-#: includes/class-sg-order-approval-woocommerce-wc-customer-order.php:22
+#: includes/class-sg-order-approval-woocommerce-wc-customer-order.php:24
 #, php-format
 msgctxt "default email subject for new emails sent to the customer"
 msgid "[%s] Order is waiting for approval"
 msgstr ""
 
-#: includes/class-sg-order-approval-woocommerce-payment-gateway.php:70
+#: includes/class-sg-order-approval-woocommerce-payment-gateway.php:73
 msgid "Description"
+msgstr ""
+
+#: templates/emails/store-new-preorder.php:380
+#: templates/emails/plain/store-new-preorder.php:378
+msgid "Discount"
 msgstr ""
 
 #: plugin-deactivation-survey/deactivate-feedback-form.php:41
 msgid "Do not send my e-mail address with this feedback"
 msgstr ""
 
-#: admin/class-sg-order-approval-woocommerce-admin.php:322
-msgid "Documentation"
+#: admin/class-sg-order-approval-woocommerce-admin.php:557
+msgid "Docs"
 msgstr ""
 
-#: includes/class-sg-order-approval-woocommerce-payment-gateway.php:57
+#: admin/class-sg-order-approval-woocommerce-admin.php:382
+msgid "Dokan"
+msgstr ""
+
+#: includes/class-wcfm-order-approval-vendor-order.php:203
+msgid "Email Heading"
+msgstr ""
+
+#: includes/class-dokan-order-approval-vendor-order.php:173
+msgid "Email heading"
+msgstr ""
+
+#: includes/class-wcfm-order-approval-vendor-order.php:210
+msgid "Email Type"
+msgstr ""
+
+#: includes/class-dokan-order-approval-vendor-order.php:182
+msgid "Email type"
+msgstr ""
+
+#: templates/emails/store-new-preorder.php:469
+#: templates/emails/plain/store-new-preorder.php:470
+msgid "Email:"
+msgstr ""
+
+#: admin/class-sg-order-approval-woocommerce-admin.php:337
+msgid "Emails"
+msgstr ""
+
+#: admin/class-sg-order-approval-woocommerce-admin.php:375
+msgid "Enable multivendor support"
+msgstr ""
+
+#: admin/class-sg-order-approval-woocommerce-admin.php:357
+msgid "Enable orders editable"
+msgstr ""
+
+#: includes/class-dokan-order-approval-vendor-order.php:160
+msgid "Enable this email notification"
+msgstr ""
+
+#: includes/class-wcfm-order-approval-vendor-order.php:192
+msgid "Enable this email notification."
+msgstr ""
+
+#: includes/class-sg-order-approval-woocommerce-payment-gateway.php:60
 msgid "Enable Woocommerce Order Approval Payment"
 msgstr ""
 
-#: includes/class-sg-order-approval-woocommerce-payment-gateway.php:55
+#: includes/class-dokan-order-approval-vendor-order.php:158
+#: includes/class-sg-order-approval-woocommerce-payment-gateway.php:58
+#: includes/class-wcfm-order-approval-vendor-order.php:190
 msgid "Enable/Disable"
 msgstr ""
 
-#: admin/class-sg-order-approval-woocommerce-admin.php:328
+#: templates/emails/store-new-preorder.php:320
+#: templates/emails/plain/store-new-preorder.php:311
+msgid "Fee"
+msgstr ""
+
+#: admin/class-sg-order-approval-woocommerce-admin.php:562
 msgid "Free Support"
 msgstr ""
 
-#: admin/class-sg-order-approval-woocommerce-admin.php:352
-#, php-format
-msgid ""
-"Free version order approval plugin enabled for all orders.<p> Enable order "
-"approval at <a href=\"%s\" target=\"_blank\">payments</a> & customise  <a "
-"href=\"%s\" target=\"_blank\">emails</a>.</p> If you want to enable order "
-"approval for specific product please purchase  <a href=\"%s\" "
-"target=\"_blank\">premium version</a>."
-msgstr ""
-
-#: admin/class-sg-order-approval-woocommerce-admin.php:340
-msgid "Get Premium"
-msgstr ""
-
-#: admin/class-sg-order-approval-woocommerce-admin.php:315
+#: admin/class-sg-order-approval-woocommerce-admin.php:322
 msgid "Helpfull Links"
 msgstr ""
 
-#: admin/class-sg-order-approval-woocommerce-admin.php:317
+#: admin/class-sg-order-approval-woocommerce-admin.php:324
 msgid "Helpfull Links for settings page"
 msgstr ""
 
-#: admin/class-sg-order-approval-woocommerce-admin.php:366
+#: admin/class-sg-order-approval-woocommerce-admin.php:353
 msgid "How to handle stock using order approval"
 msgstr ""
 
-#: includes/class-sg-order-approval-woocommerce-wc-admin-order.php:156
+#: includes/class-sg-order-approval-woocommerce-wc-admin-order.php:159
+#: includes/class-wcfm-order-approval-vendor-order.php:217
 msgid "HTML"
 msgstr ""
 
@@ -149,7 +264,7 @@ msgid "https://sevengits.com/"
 msgstr ""
 
 #. URI of the plugin
-msgid "https://wordpress.org/plugins/order-approval-woocommerce/"
+msgid "https://sevengits.com/plugin/order-approval-woocommerce-pro/"
 msgstr ""
 
 #: plugin-deactivation-survey/deactivate-feedback-form.php:59
@@ -164,77 +279,160 @@ msgstr ""
 msgid "If you would be kind enough, please tell us why you're deactivating?"
 msgstr ""
 
-#: includes/class-sg-order-approval-woocommerce-payment-gateway.php:78
+#: includes/class-sg-order-approval-woocommerce-payment-gateway.php:81
 msgid "Instructions"
 msgstr ""
 
-#: includes/class-sg-order-approval-woocommerce-payment-gateway.php:80
+#: includes/class-sg-order-approval-woocommerce-payment-gateway.php:83
 msgid "Instructions that will be added to the thank you page and emails."
+msgstr ""
+
+#: templates/emails/store-new-preorder.php:90
+msgid "is pending approval. Order details is as follows:"
 msgstr ""
 
 #: plugin-deactivation-survey/deactivate-feedback-form.php:61
 msgid "It's a temporary deactivation, I'm troubleshooting"
 msgstr ""
 
-#: admin/class-sg-order-approval-woocommerce-admin.php:364
+#: admin/class-sg-order-approval-woocommerce-admin.php:351
 msgid "Let woocommerce or other plugin handle it"
 msgstr ""
 
-#: admin/class-sg-order-approval-woocommerce-admin.php:357
+#: admin/class-sg-order-approval-woocommerce-admin.php:344
 msgid "Manage inventory"
 msgstr ""
 
-#: includes/class-sg-order-approval-woocommerce-wc-admin-order.php:157
+#: includes/class-sg-order-approval-woocommerce-wc-admin-order.php:160
+#: includes/class-wcfm-order-approval-vendor-order.php:218
 msgid "Multipart"
 msgstr ""
 
-#: includes/class-sg-order-approval-woocommerce-wc-admin-order.php:25
+#: admin/class-sg-order-approval-woocommerce-admin.php:372
+msgid "Multivendor support"
+msgstr ""
+
+#: includes/class-dokan-order-approval-vendor-order.php:67
+msgid "New Customer Order: #{order_number}"
+msgstr ""
+
+#: includes/class-sg-order-approval-woocommerce-wc-admin-order.php:27
 msgid "New Order "
 msgstr ""
 
+#. %d: Order number
 #: templates/emails/plain/wc-customer-order-approved.php:12
 msgid "New order #%d has been approved. The order details:"
 msgstr ""
 
+#. %d: Order number
 #: templates/emails/plain/wc-customer-order-new.php:12
 msgid "New order #%d has been received for admin approval. The order details:"
 msgstr ""
 
+#. %d: Order number
 #: templates/emails/plain/wc-admin-order-new.php:12
 msgid "New order #%d has been received. The order details:"
 msgstr ""
 
-#: includes/class-sg-order-approval-woocommerce-wc-customer-order-approved.php:16
+#: includes/class-dokan-order-approval-vendor-order.php:23
+msgid ""
+"New order emails are sent to chosen recipient(s) when a new order is "
+"received."
+msgstr ""
+
+#: includes/class-wcfm-order-approval-vendor-order.php:21
+msgid "New order notification emails are sent when order is pending approval."
+msgstr ""
+
+#: includes/class-wcfm-order-approval-vendor-order.php:56
+msgid "New Order Pending Approval"
+msgstr ""
+
+#: templates/emails/store-new-preorder.php:161
+#: templates/emails/plain/store-new-preorder.php:152
+msgid "No longer exists"
+msgstr ""
+
+#: admin/class-sg-order-approval-woocommerce-admin.php:380
+msgid "None"
+msgstr ""
+
+#: templates/emails/vendor-new-preorder.php:83
+msgid "Note:"
+msgstr ""
+
+#: templates/emails/store-new-preorder.php:99
+#: templates/emails/store-new-preorder.php:101
+#: templates/emails/plain/store-new-preorder.php:90
+#: templates/emails/plain/store-new-preorder.php:92
+msgid "Order"
+msgstr ""
+
+#. Name of the plugin
+msgid "Order Approval for Woocommerce"
+msgstr ""
+
+#: includes/class-sg-order-approval-woocommerce-wc-customer-order-approved.php:18
 msgid "Order approved notification"
 msgstr ""
 
-#: includes/class-sg-order-approval-woocommerce-wc-customer-order-rejected.php:16
+#: admin/packages/dokan.php:316
+msgid "Order cancelled after 24 hours of being unpaid."
+msgstr ""
+
+#: templates/emails/wc-admin-order-new.php:25
+msgid "Order Details"
+msgstr ""
+
+#: templates/emails/plain/store-new-preorder.php:86
+msgid "Order details is as follows"
+msgstr ""
+
+#: templates/emails/wc-customer-order-rejected.php:24
+msgid "Order Details:"
+msgstr ""
+
+#: includes/class-sg-order-approval-woocommerce-wc-customer-order-rejected.php:18
 msgid "Order rejected notification"
 msgstr ""
 
-#: admin/class-sg-order-approval-woocommerce-admin.php:105
-#: admin/class-sg-order-approval-woocommerce-admin.php:122
+#: admin/class-sg-order-approval-woocommerce-admin.php:107
+#: admin/class-sg-order-approval-woocommerce-admin.php:125
 msgctxt "Order status"
 msgid "Waiting for approval"
+msgstr ""
+
+#: templates/emails/store-new-preorder.php:443
+#: templates/emails/plain/store-new-preorder.php:442
+msgid "Order Total"
 msgstr ""
 
 #: plugin-deactivation-survey/deactivate-feedback-form.php:62
 msgid "Other"
 msgstr ""
 
-#: templates/emails/wc-customer-order-approved.php:24
+#: templates/emails/wc-customer-order-approved.php:26
 msgid "Pay for order"
 msgstr ""
 
-#: templates/emails/wc-customer-order-approved.php:26
+#: templates/emails/wc-customer-order-approved.php:28
 msgid "Pay now"
 msgstr ""
 
-#: includes/class-sg-order-approval-woocommerce-payment-gateway.php:72
+#: includes/class-sg-order-approval-woocommerce-payment-gateway.php:75
 msgid "Payment method description that the customer will see on your checkout."
 msgstr ""
 
-#: includes/class-sg-order-approval-woocommerce-wc-admin-order.php:155
+#: admin/class-sg-order-approval-woocommerce-admin.php:336
+msgid "Payments"
+msgstr ""
+
+#: includes/class-wcfm-order-approval-vendor-order.php:216
+msgid "Plain Text"
+msgstr ""
+
+#: includes/class-sg-order-approval-woocommerce-wc-admin-order.php:158
 msgid "Plain text"
 msgstr ""
 
@@ -242,16 +440,17 @@ msgstr ""
 msgid "Please give us any feedback that could help us improve"
 msgstr ""
 
-#: templates/emails/wc-customer-order-approved.php:25
+#: templates/emails/wc-customer-order-approved.php:27
 msgid "Please pay the order by clicking here "
 msgstr ""
 
+#. %s: payment url
 #: templates/emails/plain/wc-customer-order-approved.php:14
 #, php-format
 msgid "Please pay the order by clicking here %s "
 msgstr ""
 
-#: includes/class-sg-order-approval-woocommerce-payment-gateway.php:73
+#: includes/class-sg-order-approval-woocommerce-payment-gateway.php:76
 msgid "Please remit payment after order approval."
 msgstr ""
 
@@ -267,62 +466,160 @@ msgstr ""
 msgid "Please wait"
 msgstr ""
 
-#: includes/class-sg-order-approval-woocommerce-payment-gateway.php:65
+#: includes/class-sg-order-approval-woocommerce-payment-gateway.php:68
 msgid "Pre Order"
+msgstr ""
+
+#: includes/class-wcfm-order-approval-vendor-order.php:20
+msgid "Pre-Order Notification for Vendors"
+msgstr ""
+
+#: admin/class-sg-order-approval-woocommerce-admin.php:338
+msgid "premium version"
+msgstr ""
+
+#: templates/emails/store-new-preorder.php:117
+#: templates/emails/vendor-new-preorder.php:47
+#: templates/emails/plain/store-new-preorder.php:108
+msgid "Price"
+msgstr ""
+
+#: templates/emails/store-new-preorder.php:116
+#: templates/emails/vendor-new-preorder.php:45
+#: templates/emails/plain/store-new-preorder.php:107
+msgid "Product"
+msgstr ""
+
+#: templates/emails/vendor-new-preorder.php:46
+msgid "Quantity"
 msgstr ""
 
 #: plugin-deactivation-survey/deactivate-feedback-form.php:37
 msgid "Quick Feedback"
 msgstr ""
 
-#: admin/class-sg-order-approval-woocommerce-admin.php:363
+#: admin/class-sg-order-approval-woocommerce-admin.php:568
+msgid "Rate the plugin"
+msgstr ""
+
+#. %d: Order number
+#: templates/emails/wc-admin-order-new.php:17
+#, php-format
+msgid "Received the following order from %s:"
+msgstr ""
+
+#: admin/class-sg-order-approval-woocommerce-admin.php:350
 msgid "Reduce stock upon order approval"
 msgstr ""
 
-#: admin/class-sg-order-approval-woocommerce-admin.php:362
+#: admin/class-sg-order-approval-woocommerce-admin.php:349
 msgid "Reduce stock upon order approval request"
 msgstr ""
 
-#: admin/class-sg-order-approval-woocommerce-admin.php:143
-#: admin/class-sg-order-approval-woocommerce-admin.php:425
+#: templates/emails/store-new-preorder.php:455
+#: templates/emails/plain/store-new-preorder.php:454
+msgid "Refunded"
+msgstr ""
+
+#: admin/class-sg-order-approval-woocommerce-admin.php:146
+#: admin/class-sg-order-approval-woocommerce-admin.php:422
+#: public/packages/dokan.php:83
 msgid "Reject"
 msgstr ""
 
-#: admin/class-sg-order-approval-woocommerce-admin.php:423
+#: admin/packages/wcfm.php:120 admin/packages/wcfm.php:149
+msgid "Reject order"
+msgstr ""
+
+#: admin/class-sg-order-approval-woocommerce-admin.php:420
 msgid "Rejected"
 msgstr ""
 
-#: admin/class-sg-order-approval-woocommerce-admin.php:334
-msgid "Request Customization"
+#. %d is the count of orders approved.
+#: admin/class-sg-order-approval-woocommerce-admin.php:216
+msgid "Selected %d order marked as approved."
+msgid_plural "Selected %d orders marked as approved."
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/packages/dokan.php:236
+msgid "Settings"
 msgstr ""
 
 #. Author of the plugin
 msgid "Sevengits"
 msgstr ""
 
-#: admin/class-sg-order-approval-woocommerce-admin.php:403
+#: admin/class-sg-order-approval-woocommerce-admin.php:400
 msgid "SG Order Approval"
 msgstr ""
 
-#. Name of the plugin
-#: admin/class-sg-order-approval-woocommerce-admin.php:350
-msgid "Sg Order Approval for Woocommerce"
+#: admin/class-sg-order-approval-woocommerce-admin.php:330
+msgid "SG Order Approval for WooCommerce"
+msgstr ""
+
+#: templates/emails/store-new-preorder.php:253
+#: templates/emails/store-new-preorder.php:392
+#: templates/emails/plain/store-new-preorder.php:244
+#: templates/emails/plain/store-new-preorder.php:390
+msgid "Shipping"
+msgstr ""
+
+#: templates/emails/store-new-preorder.php:501
+#: templates/emails/plain/store-new-preorder.php:502
+msgid "Shipping address"
 msgstr ""
 
 #: plugin-deactivation-survey/deactivate-feedback-form.php:46
 msgid "Skip &amp; Deactivate"
 msgstr ""
 
+#: templates/emails/store-new-preorder.php:154
+#: templates/emails/plain/store-new-preorder.php:145
+msgid "SKU:"
+msgstr ""
+
+#: templates/emails/store-new-preorder.php:30
+#: templates/emails/plain/store-new-preorder.php:29
+msgid "Standard"
+msgstr ""
+
+#: includes/class-dokan-order-approval-vendor-order.php:164
+#: includes/class-wcfm-order-approval-vendor-order.php:196
+msgid "Subject"
+msgstr ""
+
 #: plugin-deactivation-survey/deactivate-feedback-form.php:47
 msgid "Submit &amp; Deactivate"
 msgstr ""
 
-#: includes/class-sg-order-approval-woocommerce-wc-customer-order.php:20
+#: templates/emails/store-new-preorder.php:126
+#: templates/emails/store-new-preorder.php:127
+#: templates/emails/plain/store-new-preorder.php:117
+#: templates/emails/plain/store-new-preorder.php:118
+msgid "Tax"
+msgstr ""
+
+#: templates/emails/store-new-preorder.php:472
+#: templates/emails/plain/store-new-preorder.php:473
+msgid "Telephone:"
+msgstr ""
+
+#: includes/class-sg-order-approval-woocommerce-wc-customer-order.php:22
 msgid "Thank you for your order"
 msgstr ""
 
 #: plugin-deactivation-survey/deactivate-feedback-form.php:49
 msgid "Thank you!"
+msgstr ""
+
+#. 1: Payments link, 2: Emails link, 3: Premium plugin link
+#: admin/class-sg-order-approval-woocommerce-admin.php:335
+#, php-format
+msgid ""
+"The free version of the order approval plugin is enabled for all orders. "
+"Enable order approval at %1$s and customize %2$s. If you want to enable "
+"order approval for specific products, please purchase the %3$s."
 msgstr ""
 
 #: plugin-deactivation-survey/deactivate-feedback-form.php:58
@@ -333,28 +630,85 @@ msgstr ""
 msgid "The plugin suddenly stopped working"
 msgstr ""
 
-#: includes/class-sg-order-approval-woocommerce-payment-gateway.php:64
+#: includes/class-wcfm-order-approval-vendor-order.php:198
+msgid ""
+"This controls the email subject line. Leave it blank to use the default "
+"subject"
+msgstr ""
+
+#. %s is the default email heading.
+#: includes/class-sg-order-approval-woocommerce-wc-admin-order.php:147
+#, php-format
+msgid ""
+"This controls the main heading contained within the email notification. "
+"Leave blank to use the default heading: <code>%s</code>."
+msgstr ""
+
+#: includes/class-wcfm-order-approval-vendor-order.php:205
+msgid ""
+"This controls the main heading contained within the email notification. "
+"Leave it blank to use the default heading"
+msgstr ""
+
+#: includes/class-sg-order-approval-woocommerce-payment-gateway.php:67
 msgid ""
 "This controls the title for the payment method the customer sees during "
 "checkout."
 msgstr ""
 
-#: includes/class-sg-order-approval-woocommerce-payment-gateway.php:62
+#: templates/emails/store-new-preorder.php:392
+#: templates/emails/plain/store-new-preorder.php:390
+msgid "This is the shipping and handling total costs for the order."
+msgstr ""
+
+#: templates/emails/store-new-preorder.php:380
+#: templates/emails/plain/store-new-preorder.php:378
+msgid "This is the total discount. Discounts are defined per line item."
+msgstr ""
+
+#: includes/class-sg-order-approval-woocommerce-payment-gateway.php:65
 msgid "Title"
 msgstr ""
 
-#: includes/class-sg-order-approval-woocommerce-payment-gateway.php:119
+#: templates/emails/store-new-preorder.php:119
+#: templates/emails/plain/store-new-preorder.php:110
+msgid "Total"
+msgstr ""
+
+#: templates/emails/store-new-preorder.php:157
+#: templates/emails/plain/store-new-preorder.php:148
+msgid "Variation ID:"
+msgstr ""
+
+#: includes/class-dokan-order-approval-vendor-order.php:22
+msgid "Vendor Pre Order Notification"
+msgstr ""
+
+#: public/packages/dokan.php:129
+msgid "Waiting"
+msgstr ""
+
+#: includes/class-sg-order-approval-woocommerce-payment-gateway.php:122
 msgid "waiting admin approval"
 msgstr ""
 
-#: admin/class-sg-order-approval-woocommerce-admin.php:110
+#. %s is the count of orders waiting for approval.
+#: admin/class-sg-order-approval-woocommerce-admin.php:113
 #, php-format
 msgid "Waiting approval <span class=\"count\">(%s)</span>"
 msgid_plural "Waiting<span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/class-sg-order-approval-woocommerce-payment-gateway.php:26
+#: admin/class-sg-order-approval-woocommerce-admin.php:381
+msgid "WCFM"
+msgstr ""
+
+#: admin/class-sg-order-approval-woocommerce-admin.php:360
+msgid "when new orders created admin can edit order"
+msgstr ""
+
+#: includes/class-sg-order-approval-woocommerce-payment-gateway.php:29
 msgid "Woocommerce Order Approval"
 msgstr ""
 
@@ -364,31 +718,38 @@ msgid ""
 "all the orders placed by customers before payment processed."
 msgstr ""
 
-#: templates/emails/wc-customer-order-approved.php:15
+#: templates/emails/plain/vendor-new-preorder.php:15
+msgid "You have received an order from"
+msgstr ""
+
+#: templates/emails/vendor-new-preorder.php:30
+msgid "You have received an order from "
+msgstr ""
+
+#. %d: Order number
+#: templates/emails/wc-customer-order-approved.php:17
 msgid "Your order #%d has been approved."
 msgstr ""
 
-#: templates/emails/wc-customer-order-rejected.php:15
+#. %d: Order number
+#: templates/emails/wc-customer-order-rejected.php:17
 msgid "Your order #%d has been rejected."
 msgstr ""
 
+#. %d: Order number
 #: templates/emails/plain/wc-customer-order-rejected.php:12
 msgid "Your order #%d has been rejected. The order details:"
 msgstr ""
 
-#: templates/emails/wc-customer-order-new.php:15
+#. %d: Order number
+#: templates/emails/wc-customer-order-new.php:17
 msgid "Your order #%d has been waiting for approval."
 msgstr ""
 
-#: includes/class-sg-order-approval-woocommerce-wc-customer-order-approved.php:20
+#: includes/class-sg-order-approval-woocommerce-wc-customer-order-approved.php:22
 msgid "Your order is approved."
 msgstr ""
 
-#: includes/class-sg-order-approval-woocommerce-wc-customer-order-rejected.php:20
+#: includes/class-sg-order-approval-woocommerce-wc-customer-order-rejected.php:22
 msgid "Your order is rejected"
-msgstr ""
-
-#: templates/emails/wc-admin-order-new.php:15
-#, php-format
-msgid "You’ve received the following order from %s:"
 msgstr ""

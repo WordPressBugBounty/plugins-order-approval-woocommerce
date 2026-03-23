@@ -1,6 +1,6 @@
 <?php
-
 namespace sevengits;
+if (!defined('ABSPATH')) exit;
 
 if (!is_admin())
 	return;

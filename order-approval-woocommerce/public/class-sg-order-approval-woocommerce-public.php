@@ -9,6 +9,7 @@
  * @package    Sg_Order_Approval_Woocommerce
  * @subpackage Sg_Order_Approval_Woocommerce/public
  */
+if (!defined('ABSPATH')) exit;
 
 /**
  * The public-facing functionality of the plugin.

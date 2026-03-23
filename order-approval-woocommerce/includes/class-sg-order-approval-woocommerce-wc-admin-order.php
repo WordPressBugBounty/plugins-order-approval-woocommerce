@@ -1,4 +1,6 @@
 <?php
+if (!defined('ABSPATH')) exit;
+
 /**
  * Class WC_Admin_Order_New
  */

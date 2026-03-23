@@ -1,4 +1,6 @@
 <?php
+if (!defined('ABSPATH')) exit;
+
 /**
  * Class  WC_Customer_Order_Rejected
  */

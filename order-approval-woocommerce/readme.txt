@@ -1,10 +1,10 @@
 === Order Approval for Woocommerce  ===
 Contributors: Sarankumar,Sevengits
 Donate link: https://sevengits.com/donate
-Tags: order approval,woocommerce order approval,approve orders,block payment,manual order approval
+Tags: order approval,woocommerce approval,approve orders,block payment,manual approval
 Requires at least: 4.0
 Tested up to: 6.9
-Stable tag: 2.1.15
+Stable tag: 2.2.0
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -15,6 +15,17 @@ Approve or reject WooCommerce orders before payment. Manual order approval, emai
 
 **WooCommerce Order Approval** plugin allows shop owners to approve or reject orders before payment is processed, giving complete control over the WooCommerce sales flow.
 With this order approval system, customers can place an order without completing payment. The store owner or admin can manually review each order and decide whether to approve or reject it before payment.
+
+**Multivendor Support (Since 2.2.0)**
+
+Starting from version 2.2.0, multivendor support is included directly in the Order Approval for WooCommerce plugin. All existing features remain the same, with added support for Dokan and WCFM.[Read more](https://sevengits.com/order-approval-for-woocommerce-add-ons-are-now-merged/?utm_source=readme&utm_medium=order-approval-readme&utm_campaign=oreadme)
+
+To use multivendor functionality, select your preferred option **(Dokan or WCFM)** in the **Order Approval settings** and install the required plugin:
+
+* Use Dokan by [installing the Dokan plugin](https://wordpress.org/plugins/dokan-lite/)
+* Use WCFM by [installing WCFM Frontend Manager](https://wordpress.org/plugins/wc-frontend-manager/) and [WCFM Marketplace](https://wordpress.org/plugins/wc-multivendor-marketplace/)
+
+>Note: Only one multivendor plugin should be used at a time. Do not enable both Dokan and WCFM on the same site.
 
 **Sales process flow for new customer**
 
@@ -150,11 +161,22 @@ see attached image.
 
 == Changelog ==
 
-We need your support!
+Love using this plugin?
 
-Hope you liked this plugin. We are happy to hear how our plugin is helping you and your business.
-Sharing your feedback along with a [5-star rating on WordPress](https://wordpress.org/support/plugin/order-approval-woocommerce/reviews/?rate=5#new-post?utm_source=wp&utm_medium=readme&utm_campaign=order-approval) is very much appreciated.
-Your reviews that motivates us to come up with new features and frequent updates.
+Please consider leaving a 5-star review on the [WordPress Plugin Directory](https://wordpress.org/support/plugin/order-approval-woocommerce/reviews/#new-post) ⭐⭐⭐⭐⭐
+Your review helps us keep the plugin continue providing free updates, support, and maintenance.
+
+Thank you for supporting❤️
+
+**2.2.0 - 17 MAR 2026**
+
+* **New:** Dokan multivendor support is now built directly into the Order Approval plugin
+* **New:** WCFM Marketplace support is now included inside the main plugin
+* **Improvement:** Multivendor integrations can now be enabled from **Order Approval → Settings → Multivendor Support**
+* **Improvement:** Simplified plugin setup by removing the need for separate add-on plugins
+* **Improvement:** Removed dependency on separate add-on plugins
+* **Improvement:** Compatible with WordPress 6.9
+* **Improvement:** Compatible with WooCommerce 10.6
 
 **2.1.15 - 19 JAN 2026**
 

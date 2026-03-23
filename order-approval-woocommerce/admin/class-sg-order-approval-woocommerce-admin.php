@@ -1,4 +1,5 @@
 <?php
+if (!defined('ABSPATH')) exit;
 
 /**
  * The admin-specific functionality of the plugin.
@@ -313,7 +314,6 @@ class Sg_Order_Approval_Woocommerce_Admin
 	public function sg_get_settings($settings, $current_section)
 	{
 		if ('sg_order_tab' == $current_section) {
-			$addon_settings = apply_filters('sg_oawoo_additional_settings', array());
 			$payment_link = admin_url() . "admin.php?page=wc-settings&tab=checkout";
 			$e_link = admin_url() . 'admin.php?page=wc-settings&tab=email';
 
@@ -331,10 +331,11 @@ class Sg_Order_Approval_Woocommerce_Admin
 					'type'  => 'title',
 					/* translators: 1: Payments link, 2: Emails link, 3: Premium version link */
 					'desc'  => sprintf(
-						__('The free version of the order approval plugin is enabled for all orders.<p>Enable order approval at <a href="%1$s" target="_blank">Payments</a> and customize <a href="%2$s" target="_blank">Emails</a>.</p>If you want to enable order approval for specific products, please purchase the <a href="%3$s" target="_blank">premium version</a>.', 'order-approval-woocommerce'),
-						esc_url($payment_link),
-						esc_url($e_link),
-						esc_url('https://sevengits.com/plugin/sg-order-approval-woocommerce-pro/?utm_source=dashboard&utm_medium=settings-page&utm_campaign=order-approval-woocommerce')
+						/* translators: 1: Payments link, 2: Emails link, 3: Premium plugin link */
+						__('The free version of the order approval plugin is enabled for all orders. Enable order approval at %1$s and customize %2$s. If you want to enable order approval for specific products, please purchase the %3$s.', 'order-approval-woocommerce'),
+						'<a href="' . esc_url($payment_link) . '" target="_blank" rel="noopener noreferrer">' . esc_html__('Payments', 'order-approval-woocommerce') . '</a>',
+						'<a href="' . esc_url($e_link) . '" target="_blank" rel="noopener noreferrer">' . esc_html__('Emails', 'order-approval-woocommerce') . '</a>',
+						'<a href="' . esc_url('https://sevengits.com/plugin/sg-order-approval-woocommerce-pro/?utm_source=dashboard&utm_medium=settings-page&utm_campaign=order-approval-woocommerce') . '" target="_blank" rel="noopener noreferrer">' . esc_html__('premium version', 'order-approval-woocommerce') . '</a>'
 					),
 					'id'    => 'sg_tab_main',
 				),
@@ -366,24 +367,27 @@ class Sg_Order_Approval_Woocommerce_Admin
 					'id'	=> 'ppw_woo'
 				),
 
-			);
-			if (count($addon_settings) > 0) {
-				$addon_settings_title = array(
-					array(
-
-						'type' => 'title',
-						'name' => __('Addon Plugins', 'order-approval-woocommerce')
-					),
-					array(
-						array(
-							'type'	=> 'sectionend',
-							'name'	=> 'end_section',
-							'id'	=> 'sgits_oa_addon_section_start'
-						),
+				array(
+					'type' => 'title',
+					'name' => __('Multivendor support', 'order-approval-woocommerce')
+				),
+				array(
+					'name'    => __('Enable multivendor support', 'order-approval-woocommerce'),
+					'id'    => 'sgoa_enable_multivendor_support',
+					'type'    => "select",
+					'default' => '',
+					'options' => array(
+						'' => __('None', 'order-approval-woocommerce'),
+						'wcfm' => __('WCFM', 'order-approval-woocommerce'),
+						'dokan' => __('Dokan', 'order-approval-woocommerce')
 					)
-				);
-				$settings = array_merge($settings, $addon_settings_title, $addon_settings);
-			}
+				),
+				array(
+					'type'	=> 'sectionend',
+					'name'	=> 'end_section',
+					'id'	=> 'sgits_oa_addon_section_start'
+				),
+			);
 		}
 		return $settings;
 	}
@@ -559,7 +563,7 @@ class Sg_Order_Approval_Woocommerce_Admin
 					"target" => '_blank',
 					"link" => 'https://wordpress.org/support/plugin/order-approval-woocommerce/'
 				),
-				
+
 				'review' => array(
 					"name" => __('Rate the plugin', 'order-approval-woocommerce') . ' ★★★★★',
 					"target" => '_blank',
@@ -590,5 +594,16 @@ class Sg_Order_Approval_Woocommerce_Admin
 		}
 
 		return $is_editable;
+	}
+
+	/**
+	 * Add orders count of a specific custom order status to the main WooCommerce menu count
+	 */
+
+	function oaw_filter_woocommerce_menu_order_count($wc_processing_order_count)
+	{
+		// Call function and pass custom order status slug (without the 'wc-' prefix here)
+		$order_count_custom = wc_orders_count('waiting');
+		return $wc_processing_order_count + $order_count_custom;
 	}
 }

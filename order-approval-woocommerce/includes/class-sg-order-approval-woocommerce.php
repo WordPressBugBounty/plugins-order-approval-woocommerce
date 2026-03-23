@@ -14,6 +14,8 @@
  * @subpackage Sg_Order_Approval_Woocommerce/includes
  * @author     Sevengits <sevengits@gmail.com>
  */
+if (!defined('ABSPATH')) exit;
+
 class Sg_Order_Approval_Woocommerce
 {
 
@@ -112,6 +114,20 @@ class Sg_Order_Approval_Woocommerce
 		 */
 		require_once plugin_dir_path(dirname(__FILE__)) . 'admin/class-sg-order-approval-woocommerce-admin.php';
 
+
+		switch (get_option('sgoa_enable_multivendor_support', '')) {
+			case 'wcfm':
+				require_once plugin_dir_path(dirname(__FILE__)) . 'admin/packages/wcfm.php';
+				require_once plugin_dir_path(dirname(__FILE__)) . 'public/packages/wcfm.php';
+			break;	
+			case 'dokan':
+				require_once plugin_dir_path(dirname(__FILE__)) . 'admin/packages/dokan.php';
+				require_once plugin_dir_path(dirname(__FILE__)) . 'public/packages/dokan.php';	
+			break;
+		//	case 'multivendorx':	
+		//		require_once plugin_dir_path(dirname(__FILE__)) . 'admin/packages/multivendorx.php';
+		}
+
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
@@ -188,10 +204,10 @@ class Sg_Order_Approval_Woocommerce
 		$this->loader->add_action('woocommerce_admin_field_sgoaPromoSidebar', $plugin_admin, 'oawoo_add_admin_settings_sidebar', 100);
 
 		#  bulk order action option
-		$this->loader->add_filter('bulk_actions-woocommerce_page_wc-orders', $plugin_admin, 'sgits_oa_woo_orders_bulk_actions_begin',10,1);
+		$this->loader->add_filter('bulk_actions-woocommerce_page_wc-orders', $plugin_admin, 'sgits_oa_woo_orders_bulk_actions_begin', 10, 1);
 
 		#  bulk order action option handler
-		$this->loader->add_action('handle_bulk_actions-woocommerce_page_wc-orders', $plugin_admin, 'sgits_oa_woo_bulk_orders_actions',10, 3);
+		$this->loader->add_action('handle_bulk_actions-woocommerce_page_wc-orders', $plugin_admin, 'sgits_oa_woo_bulk_orders_actions', 10, 3);
 		#  Display admin notice 
 		$this->loader->add_action('admin_notices', $plugin_admin, 'sgits_oa_woo_admin_notices');
 		// editable orders
@@ -199,8 +215,36 @@ class Sg_Order_Approval_Woocommerce
 		if (get_option('sg_enable_order_edit') == 'yes') {
 			$this->loader->add_filter('wc_order_is_editable', $plugin_admin, 'sgitsoa_wc_make_waiting_orders_editable', 10, 2);
 		}
+	// support dokan
+		switch (get_option('sgoa_enable_multivendor_support', '')) {
+		
+		case "dokan":
+		$plugin_dokan = new Sg_Dokan_Order_Approval_Admin($this->get_plugin_name(), $this->get_version());
+		$this->loader->add_action('woocommerce_order_status_waiting', $plugin_dokan, 'email_waiting_new_order_vendor_notifications', 10, 2);
+		$this->loader->add_action('dokan_order_detail_after_order_general_details', $plugin_dokan, 'sgda_approval_actions_display');
+		# custom field type for inline fields in settings
+		//$this->loader->add_action('woocommerce_admin_field_sgits_relative_select', $plugin_dokan, 'sgits_doa_grouped_fields', 100);
+		# Show only for main order
+		$this->loader->add_action('woocommerce_thankyou', $plugin_dokan, 'sgda_custom_update_order_meta', 20, 1);
+		# cron job for cancel unhandled orders
+		$this->loader->add_action('wp', $plugin_dokan, 'sgits_doa_cancel_unpaid_orders_action');
+		$this->loader->add_action('sgits_doa_cancel_unpaid_orders_action_hook', $plugin_dokan, 'sgits_doa_cancel_unhandled_orders');
 
+		break;
+		case "wcfm":
+				$plugin_wcfm = new owfm_Admin($this->get_plugin_name(), $this->get_version());
+				$this->loader->add_action('wcfm_after_order_quick_actions', $plugin_wcfm, 'owfm_order_quick_actions', 50, 1);
+				$this->loader->add_action('wcfm_orders_module_actions', $plugin_wcfm, 'owfm_order_actions', 50, 3);
+				$this->loader->add_action('wp_ajax_nopriv_owfm_get_order_update', $plugin_wcfm, 'owfm_update_order_status');
+				$this->loader->add_action('wp_ajax_owfm_get_order_update', $plugin_wcfm, 'owfm_update_order_status');
+				$this->loader->add_action('wp_footer',$plugin_wcfm , 'owfm_order_submit',100);
+		break;
+		}
 
+		# New Order Count in WooCommerce -> Orders 
+		$this->loader->add_filter( 'woocommerce_menu_order_count', $plugin_admin,'oaw_filter_woocommerce_menu_order_count', 10, 1 );
+
+		
 	}
 
 	/**
@@ -218,6 +262,23 @@ class Sg_Order_Approval_Woocommerce
 		//$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 		$this->loader->add_filter('woocommerce_available_payment_gateways', $plugin_public, 'oawoo_paymentgatways_disable_manager');
 		$this->loader->add_filter('woocommerce_get_order_item_totals', $plugin_public, 'oawoo_email_remove_payment_method', 10, 3);
+		// support to dokan
+		switch (get_option('sgoa_enable_multivendor_support', '')) {
+		case "dokan":
+		$plugin_dokan_public = new Sg_Dokan_Order_Approval_Public($this->get_plugin_name(), $this->get_version());
+			$this->loader->add_action('wp_head', $plugin_dokan_public, 'oawoo_add_custom_order_status_actions_button_css');
+			$this->loader->add_filter('dokan_my_account_my_sub_orders_actions', $plugin_dokan_public, 'oawoo_add_custom_order_status_actions_button', 100, 2);
+			$this->loader->add_action('dokan_get_order_status_class', $plugin_dokan_public, 'oawoo_get_order_status_class',10,2);
+			$this->loader->add_action('dokan_get_order_status_translated', $plugin_dokan_public, 'oawoo_get_order_status_translated',10,2);
+		break;
+		case "wcfm":
+		$plugin_wcfm_public = new owfm_Public($this->get_plugin_name(), $this->get_version());
+		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_wcfm_public, 'enqueue_styles' );
+		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_wcfm_public, 'enqueue_scripts' );
+		
+		
+		break;	
+		}
 	}
 
 	/**
