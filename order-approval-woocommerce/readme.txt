@@ -3,8 +3,8 @@ Contributors: Sarankumar,Sevengits
 Donate link: https://sevengits.com/donate
 Tags: order approval,woocommerce approval,approve orders,block payment,manual approval
 Requires at least: 4.0
-Tested up to: 6.9
-Stable tag: 2.2.0
+Tested up to: 7.0
+Stable tag: 2.2.1
 Requires PHP: 5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -168,15 +168,20 @@ Your review helps us keep the plugin continue providing free updates, support, a
 
 Thank you for supporting❤️
 
+**2.2.1 - 07 JULY 2026**
+
+1. **Improvement:** Compatible with WordPress 7.0
+1. **Improvement:** Compatible with WooCommerce 10.9
+
 **2.2.0 - 17 MAR 2026**
 
-* **New:** Dokan multivendor support is now built directly into the Order Approval plugin
-* **New:** WCFM Marketplace support is now included inside the main plugin
-* **Improvement:** Multivendor integrations can now be enabled from **Order Approval → Settings → Multivendor Support**
-* **Improvement:** Simplified plugin setup by removing the need for separate add-on plugins
-* **Improvement:** Removed dependency on separate add-on plugins
-* **Improvement:** Compatible with WordPress 6.9
-* **Improvement:** Compatible with WooCommerce 10.6
+1. **New:** Dokan multivendor support is now built directly into the Order Approval plugin
+1. **New:** WCFM Marketplace support is now included inside the main plugin
+1. **Improvement:** Multivendor integrations can now be enabled from **Order Approval → Settings → Multivendor Support**
+1. **Improvement:** Simplified plugin setup by removing the need for separate add-on plugins
+1. **Improvement:** Removed dependency on separate add-on plugins
+1. **Improvement:** Compatible with WordPress 6.9
+1. **Improvement:** Compatible with WooCommerce 10.6
 
 **2.1.15 - 19 JAN 2026**
 
