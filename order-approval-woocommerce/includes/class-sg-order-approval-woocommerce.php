@@ -235,7 +235,7 @@ class Sg_Order_Approval_Woocommerce
 				$plugin_wcfm = new owfm_Admin($this->get_plugin_name(), $this->get_version());
 				$this->loader->add_action('wcfm_after_order_quick_actions', $plugin_wcfm, 'owfm_order_quick_actions', 50, 1);
 				$this->loader->add_action('wcfm_orders_module_actions', $plugin_wcfm, 'owfm_order_actions', 50, 3);
-				$this->loader->add_action('wp_ajax_nopriv_owfm_get_order_update', $plugin_wcfm, 'owfm_update_order_status');
+				// $this->loader->add_action('wp_ajax_nopriv_owfm_get_order_update', $plugin_wcfm, 'owfm_update_order_status');
 				$this->loader->add_action('wp_ajax_owfm_get_order_update', $plugin_wcfm, 'owfm_update_order_status');
 				$this->loader->add_action('wp_footer',$plugin_wcfm , 'owfm_order_submit',100);
 		break;

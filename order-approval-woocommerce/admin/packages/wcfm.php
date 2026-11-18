@@ -155,19 +155,24 @@ class owfm_Admin
 
 	function owfm_update_order_status()
 	{
+		if (!isset($_POST['nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'owfm-verify-nonce')) {
+			wp_send_json_error(array(
+				'message' => __('Security check failed', 'order-approval-woocommerce'),
+			), 401);
+		}
+		if (!current_user_can('manage_options')) {
+			wp_send_json_error(array(
+				'message' => __('Unauthorized access', 'order-approval-woocommerce'),
+			), 403);
+		}
 		if (isset($_POST)) {
-			$nonce = sanitize_text_field($_POST['nonce']);
-			if (!wp_verify_nonce($nonce, 'owfm-verify-nonce')) {
-				wp_send_json_error();
-			} else {
-				$order_id = sanitize_text_field($_POST['post_data']['order_id']);
-				$new_status = sanitize_text_field($_POST['post_data']['status']);
-				$order = wc_get_order($order_id);
-				$order->update_status($new_status);
-				wp_send_json_success();
-			}
+			$order_id = sanitize_text_field($_POST['post_data']['order_id']);
+			$new_status = sanitize_text_field($_POST['post_data']['status']);
+			$order = wc_get_order($order_id);
+			$order->update_status($new_status);
+			wp_send_json_success(__('Order status updated successfully', 'order-approval-woocommerce'), 200);
 		} else {
-			wp_send_json_error();
+			wp_send_json_error(__('Something went wrong', 'order-approval-woocommerce'), 403);
 		}
 	}
 
